@@ -22,10 +22,10 @@ const ClientPortal = () => {
   };
 
   return (
-    <div className="bg-slate-950 min-h-screen flex items-center justify-center py-24">
+    <div className="bg-[#0f1419] min-h-screen flex items-center justify-center py-24">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#ff6347]/10 rounded-full blur-3xl"></div>
       </div>
 
       <motion.div
@@ -34,7 +34,7 @@ const ClientPortal = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-md px-4"
       >
-        <Card className="bg-slate-900/80 backdrop-blur-lg border-slate-800">
+        <Card className="bg-[#1a2332]/80 backdrop-blur-lg border-[#2d3748]">
           <CardHeader className="text-center">
             <img 
               src="https://customer-assets.emergentagent.com/job_03aae5c1-aaf2-4127-99b1-8c468650ee5d/artifacts/dp0lp6h4_image.png" 
@@ -58,7 +58,7 @@ const ClientPortal = () => {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 bg-slate-800 border-slate-700 text-white placeholder:text-gray-500 focus:border-orange-500"
+                    className="pl-10 bg-[#2d3748] border-slate-700 text-white placeholder:text-gray-500 focus:border-[#ff6347]"
                     required
                   />
                 </div>
@@ -74,7 +74,7 @@ const ClientPortal = () => {
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10 bg-slate-800 border-slate-700 text-white placeholder:text-gray-500 focus:border-orange-500"
+                    className="pl-10 pr-10 bg-[#2d3748] border-slate-700 text-white placeholder:text-gray-500 focus:border-[#ff6347]"
                     required
                   />
                   <button
@@ -92,18 +92,18 @@ const ClientPortal = () => {
                   <input type="checkbox" className="mr-2" />
                   Remember me
                 </label>
-                <a href="#" className="text-orange-500 hover:text-orange-400 transition-colors">
+                <a href="#" className="text-[#ff6347] hover:text-orange-400 transition-colors">
                   Forgot password?
                 </a>
               </div>
 
-              <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-6">
+              <Button type="submit" className="w-full bg-[#ff6347] hover:bg-[#ff4520] text-white py-6">
                 Sign In
               </Button>
 
               <div className="text-center text-sm text-gray-400">
                 Don't have an account?{' '}
-                <a href="#" className="text-orange-500 hover:text-orange-400 transition-colors">
+                <a href="#" className="text-[#ff6347] hover:text-orange-400 transition-colors">
                   Contact Sales
                 </a>
               </div>

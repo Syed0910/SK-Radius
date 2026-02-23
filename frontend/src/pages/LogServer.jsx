@@ -26,7 +26,7 @@ const LogServer = () => {
   ];
 
   return (
-    <div className="bg-slate-950 min-h-screen">
+    <div className="bg-[#0f1419] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-950 to-orange-900/20"></div>
@@ -41,7 +41,7 @@ const LogServer = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               ISP Radius Log Server
             </h1>
-            <p className="text-2xl text-orange-500 mb-6">
+            <p className="text-2xl text-[#ff6347] mb-6">
               Advanced Centralized Log Management System
             </p>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto">
@@ -64,10 +64,10 @@ const LogServer = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-slate-900/50 border-slate-800 hover:border-orange-500/50 transition-all h-full">
+                <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347]/50 transition-all h-full">
                   <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-orange-600/20 flex items-center justify-center mb-4">
-                      <feature.icon className="h-6 w-6 text-orange-500" />
+                    <div className="w-12 h-12 rounded-lg bg-[#ff6347]/20 flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-[#ff6347]" />
                     </div>
                     <CardTitle className="text-xl text-white">{feature.title}</CardTitle>
                   </CardHeader>
@@ -82,7 +82,7 @@ const LogServer = () => {
       </section>
 
       {/* Expanded Features */}
-      <section className="py-20 bg-slate-900/30">
+      <section className="py-20 bg-[#1a2332]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -107,12 +107,12 @@ const LogServer = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-slate-900/50 border border-slate-800 rounded-lg p-6 h-full">
+                <div className="bg-[#1a2332]/50 border border-[#2d3748] rounded-lg p-6 h-full">
                   <h3 className="text-lg font-semibold text-white mb-4">{category.title}</h3>
                   <ul className="space-y-2">
                     {category.items.map((item, idx) => (
                       <li key={idx} className="flex items-start space-x-2">
-                        <Check className="h-4 w-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-[#ff6347] mt-0.5 flex-shrink-0" />
                         <span className="text-sm text-gray-400">{item}</span>
                       </li>
                     ))}
@@ -150,12 +150,12 @@ const LogServer = () => {
               >
                 <Card className={`h-full ${
                   plan.badge 
-                    ? 'bg-gradient-to-br from-orange-900/30 to-slate-900 border-orange-500 relative' 
-                    : 'bg-slate-900/50 border-slate-800'
-                } hover:border-orange-500 transition-all`}>
+                    ? 'bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347] relative' 
+                    : 'bg-[#1a2332]/50 border-[#2d3748]'
+                } hover:border-[#ff6347] transition-all`}>
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <Badge className="bg-orange-600 text-white">{plan.badge}</Badge>
+                      <Badge className="bg-[#ff6347] text-white">{plan.badge}</Badge>
                     </div>
                   )}
                   <CardHeader>
@@ -165,40 +165,40 @@ const LogServer = () => {
                   <CardContent>
                     <div className="mb-6">
                       <div className="flex items-baseline">
-                        <span className="text-3xl font-bold text-orange-500">${plan.initialPrice}</span>
+                        <span className="text-3xl font-bold text-[#ff6347]">${plan.initialPrice}</span>
                         <span className="text-gray-400 ml-2">Initial License</span>
                       </div>
                       <div className="mt-2 text-sm text-gray-400">
-                        Yearly Fee: <span className="text-orange-500 font-semibold">${plan.yearlyFee}</span>
+                        Yearly Fee: <span className="text-[#ff6347] font-semibold">${plan.yearlyFee}</span>
                       </div>
                     </div>
                     
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-start">
-                        <Check className="h-4 w-4 text-orange-500 mt-0.5 mr-2 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-[#ff6347] mt-0.5 mr-2 flex-shrink-0" />
                         <span className="text-sm text-gray-300">Unlimited Users & Data</span>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-4 w-4 text-orange-500 mt-0.5 mr-2 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-[#ff6347] mt-0.5 mr-2 flex-shrink-0" />
                         <span className="text-sm text-gray-300">{plan.nas} NAS/Routers</span>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-4 w-4 text-orange-500 mt-0.5 mr-2 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-[#ff6347] mt-0.5 mr-2 flex-shrink-0" />
                         <span className="text-sm text-gray-300">{plan.storage}</span>
                       </li>
                       <li className="flex items-start">
-                        <Check className="h-4 w-4 text-orange-500 mt-0.5 mr-2 flex-shrink-0" />
+                        <Check className="h-4 w-4 text-[#ff6347] mt-0.5 mr-2 flex-shrink-0" />
                         <span className="text-sm text-gray-300">{plan.freeService} Free Service</span>
                       </li>
                       {plan.features && plan.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start">
-                          <Check className="h-4 w-4 text-orange-500 mt-0.5 mr-2 flex-shrink-0" />
+                          <Check className="h-4 w-4 text-[#ff6347] mt-0.5 mr-2 flex-shrink-0" />
                           <span className="text-sm text-gray-300">{feature}</span>
                         </li>
                       ))}
                     </ul>
                     
-                    <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                    <Button className="w-full bg-[#ff6347] hover:bg-[#ff4520] text-white">
                       Get Started
                     </Button>
                   </CardContent>
@@ -210,7 +210,7 @@ const LogServer = () => {
       </section>
 
       {/* Server Requirements */}
-      <section className="py-20 bg-slate-900/30">
+      <section className="py-20 bg-[#1a2332]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -240,7 +240,7 @@ const LogServer = () => {
                   { plan: 'Standard', os: 'Ubuntu 22.04 64-bit', cpu: '4 Cores', ram: '8 GB', ssd: '100 GB', hdd: '2 TB' },
                   { plan: 'Professional', os: 'Ubuntu 22.04 64-bit', cpu: '6 Cores', ram: '16 GB', ssd: '100 GB', hdd: '4 TB' }
                 ].map((req, index) => (
-                  <tr key={index} className="border-b border-slate-800 hover:bg-slate-900/30 transition-colors">
+                  <tr key={index} className="border-b border-[#2d3748] hover:bg-[#1a2332]/30 transition-colors">
                     <td className="py-4 px-4 text-gray-300">{req.plan}</td>
                     <td className="py-4 px-4 text-gray-400 text-sm">{req.os}</td>
                     <td className="py-4 px-4 text-gray-400 text-sm">{req.cpu}</td>
@@ -263,7 +263,7 @@ const LogServer = () => {
           <p className="text-lg text-gray-300 mb-8">
             Request a demo or free trial with installation and onboarding support
           </p>
-          <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-6 text-lg group">
+          <Button size="lg" className="bg-[#ff6347] hover:bg-[#ff4520] text-white px-12 py-6 text-lg group">
             Request Demo
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>

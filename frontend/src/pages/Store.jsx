@@ -8,7 +8,7 @@ import { products } from '../data/mockData';
 
 const Store = () => {
   return (
-    <div className="bg-slate-950 min-h-screen py-24">
+    <div className="bg-[#0f1419] min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -30,16 +30,16 @@ const Store = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="bg-slate-900/50 border-slate-800 hover:border-orange-500 transition-all group h-full flex flex-col">
+              <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347] transition-all group h-full flex flex-col">
                 <CardHeader>
-                  <div className="w-full h-56 mb-4 rounded-lg overflow-hidden bg-slate-800">
+                  <div className="w-full h-56 mb-4 rounded-lg overflow-hidden bg-[#2d3748]">
                     <img 
                       src={product.image} 
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <CardTitle className="text-2xl text-white group-hover:text-orange-500 transition-colors">
+                  <CardTitle className="text-2xl text-white group-hover:text-[#ff6347] transition-colors">
                     {product.name}
                   </CardTitle>
                   <CardDescription className="text-gray-400">
@@ -52,14 +52,14 @@ const Store = () => {
                   <div className="space-y-2">
                     {product.highlights.slice(0, 2).map((highlight, idx) => (
                       <div key={idx} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#ff6347] mt-2 flex-shrink-0"></div>
                         <p className="text-sm text-gray-400">{highlight}</p>
                       </div>
                     ))}
                   </div>
 
                   <Link to={`/products/${product.id}`} className="mt-6 block">
-                    <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white group">
+                    <Button className="w-full bg-[#ff6347] hover:bg-[#ff4520] text-white group">
                       View Details
                       <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
@@ -77,13 +77,13 @@ const Store = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-12">
+          <div className="bg-[#1a2332]/50 border border-[#2d3748] rounded-2xl p-12">
             <h2 className="text-3xl font-bold text-white mb-4">Need Help Choosing?</h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Not sure which solution is right for your business? Our team is here to help you find 
               the perfect fit for your ISP operations.
             </p>
-            <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-lg group">
+            <Button size="lg" className="bg-[#ff6347] hover:bg-[#ff4520] text-white px-8 py-6 text-lg group">
               Contact Our Sales Team
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>

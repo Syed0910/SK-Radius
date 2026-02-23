@@ -32,7 +32,7 @@ const Docs = () => {
   ];
 
   return (
-    <div className="bg-slate-950 min-h-screen py-24">
+    <div className="bg-[#0f1419] min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -53,10 +53,10 @@ const Docs = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="bg-slate-900/50 border-slate-800 hover:border-orange-500 transition-all h-full">
+              <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347] transition-all h-full">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-orange-600/20 flex items-center justify-center mb-4">
-                    <category.icon className="h-6 w-6 text-orange-500" />
+                  <div className="w-12 h-12 rounded-lg bg-[#ff6347]/20 flex items-center justify-center mb-4">
+                    <category.icon className="h-6 w-6 text-[#ff6347]" />
                   </div>
                   <CardTitle className="text-2xl text-white">{category.title}</CardTitle>
                   <CardDescription className="text-gray-400">{category.description}</CardDescription>
@@ -65,8 +65,8 @@ const Docs = () => {
                   <ul className="space-y-2">
                     {category.links.map((link, idx) => (
                       <li key={idx}>
-                        <a href="#" className="text-gray-300 hover:text-orange-500 transition-colors text-sm flex items-center">
-                          <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mr-2"></span>
+                        <a href="#" className="text-gray-300 hover:text-[#ff6347] transition-colors text-sm flex items-center">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#ff6347] mr-2"></span>
                           {link}
                         </a>
                       </li>
@@ -84,12 +84,12 @@ const Docs = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-12">
+          <div className="bg-[#1a2332]/50 border border-[#2d3748] rounded-2xl p-12">
             <h2 className="text-3xl font-bold text-white mb-4">Need More Help?</h2>
             <p className="text-lg text-gray-300 mb-8">
               Can't find what you're looking for? Our support team is here to help.
             </p>
-            <a href="mailto:info@skradius.com" className="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+            <a href="mailto:info@skradius.com" className="inline-block bg-[#ff6347] hover:bg-[#ff4520] text-white px-8 py-3 rounded-lg font-medium transition-colors">
               Contact Support
             </a>
           </div>

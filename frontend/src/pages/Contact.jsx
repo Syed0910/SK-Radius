@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-slate-950 min-h-screen py-24">
+    <div className="bg-[#0f1419] min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,14 +46,14 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="bg-slate-900/50 border-slate-800 hover:border-orange-500 transition-all text-center">
+              <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347] transition-all text-center">
                 <CardContent className="pt-8">
-                  <div className="w-16 h-16 rounded-full bg-orange-600/20 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="h-8 w-8 text-orange-500" />
+                  <div className="w-16 h-16 rounded-full bg-[#ff6347]/20 flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="h-8 w-8 text-[#ff6347]" />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
                   {item.href ? (
-                    <a href={item.href} className="text-gray-300 hover:text-orange-500 transition-colors">
+                    <a href={item.href} className="text-gray-300 hover:text-[#ff6347] transition-colors">
                       {item.value}
                     </a>
                   ) : (
@@ -71,7 +71,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <Card className="bg-slate-900/50 border-slate-800">
+          <Card className="bg-[#1a2332]/50 border-[#2d3748]">
             <CardHeader>
               <CardTitle className="text-3xl text-white">Send us a Message</CardTitle>
               <CardDescription className="text-gray-400">We'll respond within 24 hours</CardDescription>
@@ -84,7 +84,7 @@ const Contact = () => {
                     <Input
                       id="name"
                       placeholder="Your name"
-                      className="bg-slate-800 border-slate-700 text-white"
+                      className="bg-[#2d3748] border-slate-700 text-white"
                       required
                     />
                   </div>
@@ -94,7 +94,7 @@ const Contact = () => {
                       id="email"
                       type="email"
                       placeholder="your@email.com"
-                      className="bg-slate-800 border-slate-700 text-white"
+                      className="bg-[#2d3748] border-slate-700 text-white"
                       required
                     />
                   </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                   <Input
                     id="subject"
                     placeholder="How can we help?"
-                    className="bg-slate-800 border-slate-700 text-white"
+                    className="bg-[#2d3748] border-slate-700 text-white"
                     required
                   />
                 </div>
@@ -114,11 +114,11 @@ const Contact = () => {
                     id="message"
                     placeholder="Tell us more about your needs..."
                     rows={6}
-                    className="bg-slate-800 border-slate-700 text-white"
+                    className="bg-[#2d3748] border-slate-700 text-white"
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-6">
+                <Button type="submit" className="w-full bg-[#ff6347] hover:bg-[#ff4520] text-white py-6">
                   Send Message
                 </Button>
               </form>

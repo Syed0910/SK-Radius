@@ -28,7 +28,7 @@ const ISPRadiusPremium = () => {
   ];
 
   return (
-    <div className="bg-slate-950 min-h-screen">
+    <div className="bg-[#0f1419] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-slate-950 to-blue-900/20"></div>
@@ -40,13 +40,13 @@ const ISPRadiusPremium = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <div className="inline-block px-4 py-2 bg-orange-600/20 border border-orange-500 rounded-full text-orange-500 text-sm font-medium mb-6">
+            <div className="inline-block px-4 py-2 bg-[#ff6347]/20 border border-[#ff6347] rounded-full text-[#ff6347] text-sm font-medium mb-6">
               ENTERPRISE EDITION
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               ISP Radius Premium
             </h1>
-            <p className="text-2xl text-orange-500 mb-6">
+            <p className="text-2xl text-[#ff6347] mb-6">
               Enterprise ISP Automation & Advanced AAA Control Platform
             </p>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto">
@@ -68,8 +68,8 @@ const ISPRadiusPremium = () => {
               { icon: Check, text: 'Priority 24/7 support' }
             ].map((item, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-lg bg-orange-600/20 flex items-center justify-center mb-3">
-                  <item.icon className="h-6 w-6 text-orange-500" />
+                <div className="w-12 h-12 rounded-lg bg-[#ff6347]/20 flex items-center justify-center mb-3">
+                  <item.icon className="h-6 w-6 text-[#ff6347]" />
                 </div>
                 <p className="text-sm text-gray-300">{item.text}</p>
               </div>
@@ -102,7 +102,7 @@ const ISPRadiusPremium = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-gradient-to-br from-orange-900/20 to-slate-900 border-orange-500/50 hover:border-orange-500 transition-all h-full">
+                <Card className="bg-gradient-to-br from-orange-900/20 to-[#1a2332] border-[#ff6347]/50 hover:border-[#ff6347] transition-all h-full">
                   <CardHeader>
                     <CardTitle className="text-xl text-white">{feature.title}</CardTitle>
                   </CardHeader>
@@ -117,7 +117,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Expanded Features - Same tabs as ISP Radius but with "Enterprise" badge */}
-      <section className="py-20 bg-slate-900/30">
+      <section className="py-20 bg-[#1a2332]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -132,7 +132,7 @@ const ISPRadiusPremium = () => {
           </motion.div>
 
           <Tabs defaultValue="network" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-slate-900">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#1a2332]">
               <TabsTrigger value="network">Network Management</TabsTrigger>
               <TabsTrigger value="billing">Billing & Finance</TabsTrigger>
               <TabsTrigger value="user">User Management</TabsTrigger>
@@ -153,9 +153,9 @@ const ISPRadiusPremium = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="flex items-start space-x-3 p-4 rounded-lg bg-slate-900/50 hover:bg-slate-900 transition-colors"
+                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#1a2332]/50 hover:bg-[#1a2332] transition-colors"
                     >
-                      <Check className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Check className="h-5 w-5 text-[#ff6347] mt-0.5 flex-shrink-0" />
                       <div>
                         <h4 className="text-white font-medium mb-1">{item.title}</h4>
                         <p className="text-sm text-gray-400">{item.description}</p>
@@ -193,29 +193,29 @@ const ISPRadiusPremium = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full bg-gradient-to-br from-orange-900/30 to-slate-900 border-orange-500 hover:shadow-lg hover:shadow-orange-500/20 transition-all">
+                <Card className="h-full bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347] hover:shadow-lg hover:shadow-[#ff6347]/20 transition-all">
                   <CardHeader>
                     <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
                     <CardDescription className="text-gray-400">{plan.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold text-orange-500">
+                      <span className="text-4xl font-bold text-[#ff6347]">
                         {typeof plan.price === 'number' ? `$${plan.price}` : plan.price}
                       </span>
                       {typeof plan.price === 'number' && <span className="text-gray-400"> / month</span>}
                     </div>
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-center text-gray-300">
-                        <Check className="h-5 w-5 text-orange-500 mr-2" />
+                        <Check className="h-5 w-5 text-[#ff6347] mr-2" />
                         Up to {plan.users} subscribers
                       </li>
                       <li className="flex items-center text-gray-300">
-                        <Check className="h-5 w-5 text-orange-500 mr-2" />
+                        <Check className="h-5 w-5 text-[#ff6347] mr-2" />
                         {plan.nas} NAS/Routers
                       </li>
                     </ul>
-                    <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                    <Button className="w-full bg-[#ff6347] hover:bg-[#ff4520] text-white">
                       {plan.name.includes('Advanced') ? 'Contact Us' : 'Get Started'}
                     </Button>
                   </CardContent>
@@ -227,7 +227,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-20 bg-slate-900/30">
+      <section className="py-20 bg-[#1a2332]/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -242,7 +242,7 @@ const ISPRadiusPremium = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-slate-900/50 border-blue-500/50">
+            <Card className="bg-[#1a2332]/50 border-blue-500/50">
               <CardHeader>
                 <CardTitle className="text-2xl text-blue-400">ISP Radius</CardTitle>
                 <CardDescription>Standard Edition</CardDescription>
@@ -272,7 +272,7 @@ const ISPRadiusPremium = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-orange-900/30 to-slate-900 border-orange-500">
+            <Card className="bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347]">
               <CardHeader>
                 <CardTitle className="text-2xl text-orange-400">ISP Radius Premium</CardTitle>
                 <CardDescription>Enterprise Edition</CardDescription>
@@ -280,23 +280,23 @@ const ISPRadiusPremium = () => {
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-orange-500 mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Everything in Standard +</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-orange-500 mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Advanced bandwidth rule engine</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-orange-500 mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Executive analytics dashboards</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-orange-500 mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Priority 24/7 support</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-orange-500 mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Full API integration</span>
                   </li>
                 </ul>
@@ -317,7 +317,7 @@ const ISPRadiusPremium = () => {
           <p className="text-lg text-gray-300 mb-8">
             Experience enterprise-grade performance and priority support
           </p>
-          <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white px-12 py-6 text-lg group">
+          <Button size="lg" className="bg-[#ff6347] hover:bg-[#ff4520] text-white px-12 py-6 text-lg group">
             Contact Enterprise Sales
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>

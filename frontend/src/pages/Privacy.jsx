@@ -56,7 +56,7 @@ const Privacy = () => {
   ];
 
   return (
-    <div className="bg-slate-950 min-h-screen py-24">
+    <div className="bg-[#0f1419] min-h-screen py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,8 +70,8 @@ const Privacy = () => {
 
           <Accordion type="single" collapsible className="w-full space-y-4">
             {sections.map((section, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-slate-900/50 border border-slate-800 rounded-lg px-6">
-                <AccordionTrigger className="text-white hover:text-orange-500 transition-colors">
+              <AccordionItem key={index} value={`item-${index}`} className="bg-[#1a2332]/50 border border-[#2d3748] rounded-lg px-6">
+                <AccordionTrigger className="text-white hover:text-[#ff6347] transition-colors">
                   {section.title}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-400 whitespace-pre-line">
@@ -81,12 +81,12 @@ const Privacy = () => {
             ))}
           </Accordion>
 
-          <div className="mt-12 bg-slate-900/50 border border-slate-800 rounded-lg p-8">
+          <div className="mt-12 bg-[#1a2332]/50 border border-[#2d3748] rounded-lg p-8">
             <h3 className="text-xl font-semibold text-white mb-4">Contact Us</h3>
             <p className="text-gray-400">
               If you have any questions about this Privacy Policy, please contact us at:
             </p>
-            <p className="text-orange-500 mt-2">
+            <p className="text-[#ff6347] mt-2">
               Email: info@skradius.com
             </p>
           </div>
