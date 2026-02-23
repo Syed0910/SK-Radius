@@ -44,16 +44,16 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-[#0f1419]/95 backdrop-blur-lg shadow-lg border-b border-[#1f2937]' : 'bg-transparent'
+      scrolled ? 'bg-[#0a0a0a]/95 backdrop-blur-lg shadow-lg border-b border-[#1a1a1a]' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group ml-0 lg:ml-24">
             <img 
               src="https://customer-assets.emergentagent.com/job_03aae5c1-aaf2-4127-99b1-8c468650ee5d/artifacts/dp0lp6h4_image.png" 
               alt="SKRadius" 
-              className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
@@ -64,17 +64,17 @@ const Navbar = () => {
                 <NavigationMenu key={link.name}>
                   <NavigationMenuList>
                     <NavigationMenuItem>
-                      <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:text-white hover:bg-[#2d3748]/50 transition-colors">
+                      <NavigationMenuTrigger className="bg-transparent text-gray-400 hover:text-[#ff6347] transition-colors">
                         {link.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 bg-[#1a2332] border border-[#2d3748]">
+                        <ul className="grid w-[400px] gap-3 p-4 bg-[#0f0f0f] border border-[#1a1a1a]">
                           {link.dropdown.map((item) => (
                             <li key={item.path}>
                               <NavigationMenuLink asChild>
                                 <Link
                                   to={item.path}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#2d3748] hover:text-[#ff6347] focus:bg-[#2d3748]"
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#1a1a1a] hover:text-[#ff6347]"
                                 >
                                   <div className="text-sm font-medium leading-none">{item.name}</div>
                                 </Link>
@@ -92,8 +92,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? 'text-[#ff6347] bg-[#2d3748]/50'
-                      : 'text-gray-300 hover:text-white hover:bg-[#2d3748]/50'
+                      ? 'text-[#ff6347]'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                 >
                   {link.name}
@@ -106,24 +106,24 @@ const Navbar = () => {
           <div className="lg:hidden">
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger asChild>
-                <button className="text-gray-300 hover:text-white p-2">
+                <button className="text-gray-400 hover:text-white p-2">
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-[#0f1419] border-[#2d3748] w-[300px]">
+              <SheetContent side="right" className="bg-[#0a0a0a] border-[#1a1a1a] w-[300px]">
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
                     <div key={link.name}>
                       {link.dropdown ? (
                         <div>
-                          <div className="text-sm font-medium text-gray-300 mb-2">{link.name}</div>
+                          <div className="text-sm font-medium text-gray-400 mb-2">{link.name}</div>
                           <div className="ml-4 space-y-2">
                             {link.dropdown.map((item) => (
                               <Link
                                 key={item.path}
                                 to={item.path}
                                 onClick={() => setMobileOpen(false)}
-                                className="block text-sm text-gray-400 hover:text-[#ff6347] transition-colors py-1"
+                                className="block text-sm text-gray-500 hover:text-[#ff6347] transition-colors py-1"
                               >
                                 {item.name}
                               </Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
                           className={`block text-sm font-medium transition-colors py-2 ${
                             location.pathname === link.path
                               ? 'text-[#ff6347]'
-                              : 'text-gray-300 hover:text-white'
+                              : 'text-gray-400 hover:text-white'
                           }`}
                         >
                           {link.name}
