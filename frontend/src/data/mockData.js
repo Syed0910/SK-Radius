@@ -10,7 +10,7 @@ export const products = [
       'Compatible with global ISP deployments',
       'Trusted by hundreds of ISP businesses worldwide'
     ],
-    image: 'https://customer-assets.emergentagent.com/job_radius-management/artifacts/ucdl8duh_ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_48_34%20PM.png'
+    image: 'https://customer-assets.emergentagent.com/job_radius-management/artifacts/1b4dbszw_Analytics%20dashboard%20overview%20for%20AniRiks%20Technologies.png'
   },
   {
     id: 'isp-radius-premium',
@@ -23,7 +23,7 @@ export const products = [
       'Advanced analytics & financial intelligence dashboards',
       'Priority 24/7 Dedicated Technical Support'
     ],
-    image: 'https://customer-assets.emergentagent.com/job_radius-management/artifacts/los0sjq2_ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_57_52%20PM.png'
+    image: 'https://customer-assets.emergentagent.com/job_radius-management/artifacts/p4rknbp2_ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_07_19%20PM.png'
   },
   {
     id: 'isp-radius-log-server',
@@ -36,7 +36,7 @@ export const products = [
       'HDD or Cloud storage support',
       'Comprehensive security & role permissions'
     ],
-    image: 'https://customer-assets.emergentagent.com/job_radius-management/artifacts/towrb2yi_Feb%2014%2C%202026%2C%2006_07_18%20PM.png'
+    image: 'https://customer-assets.emergentagent.com/job_radius-management/artifacts/0wmnx1mb_image.png'
   }
 ];
 
