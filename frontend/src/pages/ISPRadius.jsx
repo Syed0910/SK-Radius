@@ -9,7 +9,7 @@ import { radiusPricing, keyFeatures, features, whyChooseUs, faqs } from '../data
 
 const ISPRadius = () => {
   return (
-    <div className="bg-[#0f1419] min-h-screen">
+    <div className="bg-[#0a0a0a] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-950 to-orange-900/20"></div>
@@ -80,7 +80,7 @@ const ISPRadius = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347]/50 transition-all h-full group">
+                <Card className="bg-[#0f0f0f]/50 border-[#1a1a1a] hover:border-[#ff6347]/50 transition-all h-full group">
                   <CardHeader>
                     <CardTitle className="text-xl text-white group-hover:text-[#ff6347] transition-colors">
                       {feature.title}
@@ -97,7 +97,7 @@ const ISPRadius = () => {
       </section>
 
       {/* Expanded Features Section */}
-      <section className="py-20 bg-[#1a2332]/30">
+      <section className="py-20 bg-[#0f0f0f]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -112,7 +112,7 @@ const ISPRadius = () => {
           </motion.div>
 
           <Tabs defaultValue="network" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#1a2332]">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#0f0f0f]">
               <TabsTrigger value="network">Network Management</TabsTrigger>
               <TabsTrigger value="billing">Billing & Finance</TabsTrigger>
               <TabsTrigger value="user">User Management</TabsTrigger>
@@ -133,7 +133,7 @@ const ISPRadius = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#1a2332]/50 hover:bg-[#1a2332] transition-colors"
+                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#0f0f0f]/50 hover:bg-[#0f0f0f] transition-colors"
                     >
                       <Check className="h-5 w-5 text-[#ff6347] mt-0.5 flex-shrink-0" />
                       <div>
@@ -176,7 +176,7 @@ const ISPRadius = () => {
                 <Card className={`h-full ${
                   plan.name === 'Standard' 
                     ? 'bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347]' 
-                    : 'bg-[#1a2332]/50 border-[#2d3748]'
+                    : 'bg-[#0f0f0f]/50 border-[#1a1a1a]'
                 } hover:border-[#ff6347] transition-all`}>
                   <CardHeader>
                     <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
@@ -211,7 +211,7 @@ const ISPRadius = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-[#1a2332]/30">
+      <section className="py-20 bg-[#0f0f0f]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -234,7 +234,7 @@ const ISPRadius = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347]/50 transition-all h-full">
+                <Card className="bg-[#0f0f0f]/50 border-[#1a1a1a] hover:border-[#ff6347]/50 transition-all h-full">
                   <CardHeader>
                     <CardTitle className="text-lg text-white">{item.title}</CardTitle>
                   </CardHeader>
@@ -263,7 +263,7 @@ const ISPRadius = () => {
 
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-[#2d3748]">
+              <AccordionItem key={index} value={`item-${index}`} className="border-[#1a1a1a]">
                 <AccordionTrigger className="text-white hover:text-[#ff6347] transition-colors">
                   {faq.question}
                 </AccordionTrigger>

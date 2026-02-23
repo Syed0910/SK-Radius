@@ -22,7 +22,7 @@ const ClientPortal = () => {
   };
 
   return (
-    <div className="bg-[#0f1419] min-h-screen flex items-center justify-center py-24">
+    <div className="bg-[#0a0a0a] min-h-screen flex items-center justify-center py-24">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#ff6347]/10 rounded-full blur-3xl"></div>
@@ -34,7 +34,7 @@ const ClientPortal = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 w-full max-w-md px-4"
       >
-        <Card className="bg-[#1a2332]/80 backdrop-blur-lg border-[#2d3748]">
+        <Card className="bg-[#0f0f0f]/80 backdrop-blur-lg border-[#1a1a1a]">
           <CardHeader className="text-center">
             <img 
               src="https://customer-assets.emergentagent.com/job_03aae5c1-aaf2-4127-99b1-8c468650ee5d/artifacts/dp0lp6h4_image.png" 
@@ -58,7 +58,7 @@ const ClientPortal = () => {
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 bg-[#2d3748] border-slate-700 text-white placeholder:text-gray-500 focus:border-[#ff6347]"
+                    className="pl-10 bg-[#1a1a1a] border-[#2a2a2a] text-white placeholder:text-gray-500 focus:border-[#ff6347]"
                     required
                   />
                 </div>
@@ -74,7 +74,7 @@ const ClientPortal = () => {
                     placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 pr-10 bg-[#2d3748] border-slate-700 text-white placeholder:text-gray-500 focus:border-[#ff6347]"
+                    className="pl-10 pr-10 bg-[#1a1a1a] border-[#2a2a2a] text-white placeholder:text-gray-500 focus:border-[#ff6347]"
                     required
                   />
                   <button

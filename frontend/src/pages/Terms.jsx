@@ -66,7 +66,7 @@ const Terms = () => {
   ];
 
   return (
-    <div className="bg-[#0f1419] min-h-screen py-24">
+    <div className="bg-[#0a0a0a] min-h-screen py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -87,7 +87,7 @@ const Terms = () => {
 
           <Accordion type="single" collapsible className="w-full space-y-4">
             {sections.map((section, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="bg-[#1a2332]/50 border border-[#2d3748] rounded-lg px-6">
+              <AccordionItem key={index} value={`item-${index}`} className="bg-[#0f0f0f]/50 border border-[#1a1a1a] rounded-lg px-6">
                 <AccordionTrigger className="text-white hover:text-[#ff6347] transition-colors">
                   {section.title}
                 </AccordionTrigger>
@@ -98,7 +98,7 @@ const Terms = () => {
             ))}
           </Accordion>
 
-          <div className="mt-12 bg-[#1a2332]/50 border border-[#2d3748] rounded-lg p-8">
+          <div className="mt-12 bg-[#0f0f0f]/50 border border-[#1a1a1a] rounded-lg p-8">
             <h3 className="text-xl font-semibold text-white mb-4">Questions?</h3>
             <p className="text-gray-400">
               If you have any questions about these Terms & Conditions, please contact us at:

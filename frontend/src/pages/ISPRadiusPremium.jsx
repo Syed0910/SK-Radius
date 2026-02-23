@@ -28,7 +28,7 @@ const ISPRadiusPremium = () => {
   ];
 
   return (
-    <div className="bg-[#0f1419] min-h-screen">
+    <div className="bg-[#0a0a0a] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-slate-950 to-blue-900/20"></div>
@@ -117,7 +117,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Expanded Features - Same tabs as ISP Radius but with "Enterprise" badge */}
-      <section className="py-20 bg-[#1a2332]/30">
+      <section className="py-20 bg-[#0f0f0f]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -132,7 +132,7 @@ const ISPRadiusPremium = () => {
           </motion.div>
 
           <Tabs defaultValue="network" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#1a2332]">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#0f0f0f]">
               <TabsTrigger value="network">Network Management</TabsTrigger>
               <TabsTrigger value="billing">Billing & Finance</TabsTrigger>
               <TabsTrigger value="user">User Management</TabsTrigger>
@@ -153,7 +153,7 @@ const ISPRadiusPremium = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#1a2332]/50 hover:bg-[#1a2332] transition-colors"
+                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#0f0f0f]/50 hover:bg-[#0f0f0f] transition-colors"
                     >
                       <Check className="h-5 w-5 text-[#ff6347] mt-0.5 flex-shrink-0" />
                       <div>
@@ -227,7 +227,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-20 bg-[#1a2332]/30">
+      <section className="py-20 bg-[#0f0f0f]/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -242,7 +242,7 @@ const ISPRadiusPremium = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-[#1a2332]/50 border-blue-500/50">
+            <Card className="bg-[#0f0f0f]/50 border-blue-500/50">
               <CardHeader>
                 <CardTitle className="text-2xl text-blue-400">ISP Radius</CardTitle>
                 <CardDescription>Standard Edition</CardDescription>

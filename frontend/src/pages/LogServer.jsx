@@ -26,7 +26,7 @@ const LogServer = () => {
   ];
 
   return (
-    <div className="bg-[#0f1419] min-h-screen">
+    <div className="bg-[#0a0a0a] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-950 to-orange-900/20"></div>
@@ -64,7 +64,7 @@ const LogServer = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347]/50 transition-all h-full">
+                <Card className="bg-[#0f0f0f]/50 border-[#1a1a1a] hover:border-[#ff6347]/50 transition-all h-full">
                   <CardHeader>
                     <div className="w-12 h-12 rounded-lg bg-[#ff6347]/20 flex items-center justify-center mb-4">
                       <feature.icon className="h-6 w-6 text-[#ff6347]" />
@@ -82,7 +82,7 @@ const LogServer = () => {
       </section>
 
       {/* Expanded Features */}
-      <section className="py-20 bg-[#1a2332]/30">
+      <section className="py-20 bg-[#0f0f0f]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -107,7 +107,7 @@ const LogServer = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <div className="bg-[#1a2332]/50 border border-[#2d3748] rounded-lg p-6 h-full">
+                <div className="bg-[#0f0f0f]/50 border border-[#1a1a1a] rounded-lg p-6 h-full">
                   <h3 className="text-lg font-semibold text-white mb-4">{category.title}</h3>
                   <ul className="space-y-2">
                     {category.items.map((item, idx) => (
@@ -151,7 +151,7 @@ const LogServer = () => {
                 <Card className={`h-full ${
                   plan.badge 
                     ? 'bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347] relative' 
-                    : 'bg-[#1a2332]/50 border-[#2d3748]'
+                    : 'bg-[#0f0f0f]/50 border-[#1a1a1a]'
                 } hover:border-[#ff6347] transition-all`}>
                   {plan.badge && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
@@ -210,7 +210,7 @@ const LogServer = () => {
       </section>
 
       {/* Server Requirements */}
-      <section className="py-20 bg-[#1a2332]/30">
+      <section className="py-20 bg-[#0f0f0f]/30">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -225,7 +225,7 @@ const LogServer = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-slate-700">
+                <tr className="border-b border-[#2a2a2a]">
                   <th className="py-4 px-4 text-white font-semibold">Plan</th>
                   <th className="py-4 px-4 text-white font-semibold">OS</th>
                   <th className="py-4 px-4 text-white font-semibold">CPU</th>
@@ -240,7 +240,7 @@ const LogServer = () => {
                   { plan: 'Standard', os: 'Ubuntu 22.04 64-bit', cpu: '4 Cores', ram: '8 GB', ssd: '100 GB', hdd: '2 TB' },
                   { plan: 'Professional', os: 'Ubuntu 22.04 64-bit', cpu: '6 Cores', ram: '16 GB', ssd: '100 GB', hdd: '4 TB' }
                 ].map((req, index) => (
-                  <tr key={index} className="border-b border-[#2d3748] hover:bg-[#1a2332]/30 transition-colors">
+                  <tr key={index} className="border-b border-[#1a1a1a] hover:bg-[#0f0f0f]/30 transition-colors">
                     <td className="py-4 px-4 text-gray-300">{req.plan}</td>
                     <td className="py-4 px-4 text-gray-400 text-sm">{req.os}</td>
                     <td className="py-4 px-4 text-gray-400 text-sm">{req.cpu}</td>

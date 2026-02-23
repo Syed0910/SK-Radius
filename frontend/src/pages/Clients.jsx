@@ -5,7 +5,7 @@ import { clients } from '../data/mockData';
 
 const Clients = () => {
   return (
-    <div className="bg-[#0f1419] min-h-screen py-24">
+    <div className="bg-[#0a0a0a] min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -27,7 +27,7 @@ const Clients = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
             >
-              <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347] transition-all group">
+              <Card className="bg-[#0f0f0f]/50 border-[#1a1a1a] hover:border-[#ff6347] transition-all group">
                 <CardContent className="flex items-center justify-center h-40">
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#ff6347] to-blue-500 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
@@ -49,7 +49,7 @@ const Clients = () => {
           viewport={{ once: true }}
           className="mt-20"
         >
-          <div className="bg-gradient-to-r from-orange-900/20 to-blue-900/20 border border-[#2d3748] rounded-2xl p-12 text-center">
+          <div className="bg-gradient-to-r from-orange-900/20 to-blue-900/20 border border-[#1a1a1a] rounded-2xl p-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">Join Our Growing Client Base</h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Experience why hundreds of ISPs trust SKRadius for their network management needs. 

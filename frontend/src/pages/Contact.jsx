@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#0f1419] min-h-screen py-24">
+    <div className="bg-[#0a0a0a] min-h-screen py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,7 +46,7 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <Card className="bg-[#1a2332]/50 border-[#2d3748] hover:border-[#ff6347] transition-all text-center">
+              <Card className="bg-[#0f0f0f]/50 border-[#1a1a1a] hover:border-[#ff6347] transition-all text-center">
                 <CardContent className="pt-8">
                   <div className="w-16 h-16 rounded-full bg-[#ff6347]/20 flex items-center justify-center mx-auto mb-4">
                     <item.icon className="h-8 w-8 text-[#ff6347]" />
@@ -71,7 +71,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <Card className="bg-[#1a2332]/50 border-[#2d3748]">
+          <Card className="bg-[#0f0f0f]/50 border-[#1a1a1a]">
             <CardHeader>
               <CardTitle className="text-3xl text-white">Send us a Message</CardTitle>
               <CardDescription className="text-gray-400">We'll respond within 24 hours</CardDescription>
@@ -84,7 +84,7 @@ const Contact = () => {
                     <Input
                       id="name"
                       placeholder="Your name"
-                      className="bg-[#2d3748] border-slate-700 text-white"
+                      className="bg-[#1a1a1a] border-[#2a2a2a] text-white"
                       required
                     />
                   </div>
@@ -94,7 +94,7 @@ const Contact = () => {
                       id="email"
                       type="email"
                       placeholder="your@email.com"
-                      className="bg-[#2d3748] border-slate-700 text-white"
+                      className="bg-[#1a1a1a] border-[#2a2a2a] text-white"
                       required
                     />
                   </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                   <Input
                     id="subject"
                     placeholder="How can we help?"
-                    className="bg-[#2d3748] border-slate-700 text-white"
+                    className="bg-[#1a1a1a] border-[#2a2a2a] text-white"
                     required
                   />
                 </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                     id="message"
                     placeholder="Tell us more about your needs..."
                     rows={6}
-                    className="bg-[#2d3748] border-slate-700 text-white"
+                    className="bg-[#1a1a1a] border-[#2a2a2a] text-white"
                     required
                   />
                 </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const About = () => {
   return (
-    <div className="bg-[#0f1419] min-h-screen py-24">
+    <div className="bg-[#0a0a0a] min-h-screen py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -13,7 +13,7 @@ const About = () => {
           <h1 className="text-5xl font-bold text-white mb-8">About Us</h1>
           
           <div className="prose prose-invert max-w-none">
-            <div className="bg-[#1a2332]/50 border border-[#2d3748] rounded-lg p-8 mb-8">
+            <div className="bg-[#0f0f0f]/50 border border-[#1a1a1a] rounded-lg p-8 mb-8">
               <h2 className="text-2xl font-semibold text-white mb-4">AaniRids Technologies Private Limited</h2>
               <p className="text-gray-300 mb-4">
                 AaniRids Technologies Private Limited is the company behind SKRadius and broadband services.
