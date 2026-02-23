@@ -64,17 +64,17 @@ const Navbar = () => {
                 <NavigationMenu key={link.name}>
                   <NavigationMenuList>
                     <NavigationMenuItem>
-                      <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:text-white hover:bg-slate-800/50 transition-colors">
+                      <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:text-white hover:bg-[#2d3748]/50 transition-colors">
                         {link.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 bg-slate-900 border border-slate-800">
+                        <ul className="grid w-[400px] gap-3 p-4 bg-[#1a2332] border border-[#2d3748]">
                           {link.dropdown.map((item) => (
                             <li key={item.path}>
                               <NavigationMenuLink asChild>
                                 <Link
                                   to={item.path}
-                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 hover:text-orange-500 focus:bg-slate-800"
+                                  className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#2d3748] hover:text-[#ff6347] focus:bg-[#2d3748]"
                                 >
                                   <div className="text-sm font-medium leading-none">{item.name}</div>
                                 </Link>
@@ -92,8 +92,8 @@ const Navbar = () => {
                   to={link.path}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                     location.pathname === link.path
-                      ? 'text-orange-500 bg-slate-800/50'
-                      : 'text-gray-300 hover:text-white hover:bg-slate-800/50'
+                      ? 'text-[#ff6347] bg-[#2d3748]/50'
+                      : 'text-gray-300 hover:text-white hover:bg-[#2d3748]/50'
                   }`}
                 >
                   {link.name}
@@ -110,7 +110,7 @@ const Navbar = () => {
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-slate-950 border-slate-800 w-[300px]">
+              <SheetContent side="right" className="bg-[#0f1419] border-[#2d3748] w-[300px]">
                 <div className="flex flex-col space-y-4 mt-8">
                   {navLinks.map((link) => (
                     <div key={link.name}>
@@ -123,7 +123,7 @@ const Navbar = () => {
                                 key={item.path}
                                 to={item.path}
                                 onClick={() => setMobileOpen(false)}
-                                className="block text-sm text-gray-400 hover:text-orange-500 transition-colors py-1"
+                                className="block text-sm text-gray-400 hover:text-[#ff6347] transition-colors py-1"
                               >
                                 {item.name}
                               </Link>
@@ -136,7 +136,7 @@ const Navbar = () => {
                           onClick={() => setMobileOpen(false)}
                           className={`block text-sm font-medium transition-colors py-2 ${
                             location.pathname === link.path
-                              ? 'text-orange-500'
+                              ? 'text-[#ff6347]'
                               : 'text-gray-300 hover:text-white'
                           }`}
                         >
