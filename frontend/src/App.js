@@ -1,51 +1,43 @@
-import { useEffect } from "react";
-import "@/App.css";
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
+import ISPRadius from "./pages/ISPRadius";
+import ISPRadiusPremium from "./pages/ISPRadiusPremium";
+import LogServer from "./pages/LogServer";
+import Store from "./pages/Store";
+import ClientPortal from "./pages/ClientPortal";
+import Partners from "./pages/Partners";
+import Clients from "./pages/Clients";
+import Docs from "./pages/Docs";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="products/isp-radius" element={<ISPRadius />} />
+            <Route path="products/isp-radius-premium" element={<ISPRadiusPremium />} />
+            <Route path="products/log-server" element={<LogServer />} />
+            <Route path="store" element={<Store />} />
+            <Route path="client-portal" element={<ClientPortal />} />
+            <Route path="partners" element={<Partners />} />
+            <Route path="clients" element={<Clients />} />
+            <Route path="docs" element={<Docs />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="about" element={<About />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
           </Route>
         </Routes>
+        <Toaster />
       </BrowserRouter>
     </div>
   );
