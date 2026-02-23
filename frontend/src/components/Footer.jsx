@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Github } from 'lucide
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0f1419] border-t border-[#2d3748]">
+    <footer className="bg-[#0a0a0a] border-t border-[#2d3748]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
