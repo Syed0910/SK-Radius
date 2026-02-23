@@ -235,3 +235,8 @@ export const clients = [
   { name: 'SpeedConnect', logo: 'SC' },
   { name: 'BroadbandPro', logo: 'BP' }
 ];
+
+export const heroImages = [
+  'https://customer-assets.emergentagent.com/job_radius-management/artifacts/5eppgptp_ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_13_53%20PM.png',
+  'https://customer-assets.emergentagent.com/job_radius-management/artifacts/t83twcwa_ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_08_59%20PM.png'
+];
