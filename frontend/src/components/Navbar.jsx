@@ -49,7 +49,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group ml-0 lg:ml-24">
+          <Link to="/" className="flex items-center space-x-3 group">
             <img 
               src="https://customer-assets.emergentagent.com/job_03aae5c1-aaf2-4127-99b1-8c468650ee5d/artifacts/dp0lp6h4_image.png" 
               alt="SKRadius" 
