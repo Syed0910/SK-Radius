@@ -1,3 +1,5 @@
+import { Server, Users, Shield, Zap, Globe } from 'lucide-react';
+
 export const products = [
   {
     id: 'isp-radius',
@@ -128,14 +130,8 @@ export const features = {
 };
 
 export const keyFeatures = [
-  {
-    title: 'Unlimited ISP Management',
-    description: 'ISP Radius supports multiple ISP entities within a single system. Each ISP can maintain its own plans, settings, and reports while being managed from a central dashboard.'
-  },
-  {
-    title: 'Unlimited Branches Control',
-    description: 'Create unlimited branches under each ISP entity. Every branch operates independently with its own permissions and pricing, while head office maintains complete oversight.'
-  },
+  
+  
   {
     title: 'Multi-Level Reseller System',
     description: 'The system includes a structured reseller framework with resellers and sub-resellers. Each level can manage subscribers, billing, and payments within its hierarchy.'
@@ -149,35 +145,49 @@ export const keyFeatures = [
     description: 'Manage the full subscriber journey from activation to termination. Monitor sessions, assign plans, track usage, and maintain complete customer records.'
   },
   {
+    title: 'Service Plans Management',
+    description: 'Create and manage multiple internet service plans with flexible pricing, bandwidth allocation, data limits, validity periods, and speed profiles. Easily customize plans to suit residential, business, and enterprise customers.'
+  },
+  {
     title: 'Captive Portal and Self-Service Portal',
     description: 'A customizable portal allows subscribers to view invoices, monitor usage, upgrade plans, make payments, and raise support requests independently.'
-  }
+  },
+  {
+    title: 'General Settings & Company Configuration',
+    description: 'Manage company information including business name, contact details, logo, address, tax information, and branding elements. Configure system preferences to ensure invoices, notifications, and reports reflect accurate company data.'
+  },
 ];
 
 export const whyChooseUs = [
   {
     title: 'Easy Setup & Hassle-Free Onboarding',
-    description: 'We take the complexity out of installation - ISP Radius is quick to deploy, and our team assists with setup so you can start managing your network right away.'
+    description: 'We take the complexity out of installation - ISP Radius is quick to deploy, and our team assists with setup so you can start managing your network right away.',
+    icon: Server
   },
   {
     title: '24/7 Human Support',
-    description: 'Unlike many software providers that rely on automated replies, ISP Radius comes with real support from real experts whenever you need it.'
+    description: 'Unlike many software providers that rely on automated replies, ISP Radius comes with real support from real experts whenever you need it.',
+    icon: Users
   },
   {
     title: 'Transparent & Affordable Pricing',
-    description: 'ISP Radius offers straightforward pricing without hidden fees. Our plans are designed to give you maximum value.'
+    description: 'ISP Radius offers straightforward pricing without hidden fees. Our plans are designed to give you maximum value.',
+    icon: Shield
   },
   {
     title: 'Regular Feature Updates',
-    description: 'We continually enhance the platform with new features, performance upgrades, and improvements based on client feedback.'
+    description: 'We continually enhance the platform with new features, performance upgrades, and improvements based on client feedback.',
+    icon: Zap
   },
   {
     title: 'Robust Security & Protection',
-    description: 'Security is at the core of ISP Radius. With advanced protection against threats, your network and customer data are always safeguarded.'
+    description: 'Security is at the core of ISP Radius. With advanced protection against threats, your network and customer data are always safeguarded.',
+    icon: Shield
   },
   {
     title: 'Versatile & Scalable for Any ISP',
-    description: 'From small local providers to large nationwide networks, ISP Radius scales effortlessly and gives you full operational control.'
+    description: 'From small local providers to large nationwide networks, ISP Radius scales effortlessly and gives you full operational control.',
+    icon: Globe
   }
 ];
 

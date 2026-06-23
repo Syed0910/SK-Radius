@@ -16,10 +16,13 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import { Toaster } from "./components/ui/toaster";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
