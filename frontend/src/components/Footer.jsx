@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <img 
-              src="https://customer-assets.emergentagent.com/job_03aae5c1-aaf2-4127-99b1-8c468650ee5d/artifacts/dp0lp6h4_image.png" 
+              src="/images/skradius-logo.png" 
               alt="SKRadius" 
               className="h-12 w-auto mb-4"
             />

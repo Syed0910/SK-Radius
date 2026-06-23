@@ -37,7 +37,7 @@ const ClientPortal = () => {
         <Card className="bg-[#0f0f0f]/80 backdrop-blur-lg border-[#1a1a1a]">
           <CardHeader className="text-center">
             <img 
-              src="https://customer-assets.emergentagent.com/job_03aae5c1-aaf2-4127-99b1-8c468650ee5d/artifacts/dp0lp6h4_image.png" 
+              src="/images/skradius-logo.png" 
               alt="SKRadius" 
               className="h-16 w-auto mx-auto mb-6"
             />
