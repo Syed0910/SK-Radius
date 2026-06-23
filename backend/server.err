@@ -1,0 +1,2 @@
+⚠️  MongoDB connection failed: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+   DB-dependent routes will return 503 until MongoDB is available.

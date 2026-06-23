@@ -1,0 +1,5 @@
+🚀 Server running on http://localhost:8001
+   CORS origins: *
+   MongoDB: mongodb://localhost:27017 / test_database
+
+🛑 Shutting down...

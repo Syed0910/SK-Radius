@@ -1,0 +1,24 @@
+﻿
+> frontend@0.1.0 dev
+> craco start
+
+node.exe : 'craco' is not 
+recognized as an internal 
+or external command,
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ('cr  
+  aco' is not ...ternal    
+ command,:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+operable program or batch 
+file.
