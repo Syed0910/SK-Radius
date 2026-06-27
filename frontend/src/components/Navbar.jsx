@@ -85,7 +85,7 @@ const Navbar = () => {
                   )}
                   {link.dropdown ? (
                     <>
-                      <NavigationMenuTrigger className="!bg-transparent focus:!bg-transparent data-[state=open]:!bg-white/5 text-sm font-medium text-gray-300 hover:!text-white data-[state=open]:!text-white transition-colors rounded-lg px-4 h-9">
+                      <NavigationMenuTrigger className="!bg-transparent focus:!bg-transparent data-[state=open]:!bg-white/5 text-sm font-medium text-gray-300 hover:!text-[#ff6347] data-[state=open]:!text-white transition-colors rounded-lg px-4 h-9">
                         {link.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -108,17 +108,11 @@ const Navbar = () => {
                     <Link
                       to={link.path}
                       className={`inline-flex items-center justify-center rounded-lg px-4 h-9 text-sm font-medium transition-colors relative z-10 ${location.pathname === link.path
-                        ? 'text-white'
-                        : 'text-gray-300 hover:text-white'
+                        ? 'text-[#ff6347]'
+                        : 'text-gray-300 hover:text-[#ff6347]'
                         }`}
                     >
-                      {location.pathname === link.path && (
-                        <motion.div
-                          layoutId="nav-active-indicator"
-                          className="absolute bottom-1 w-1 h-1 bg-[#ff6347] rounded-full"
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                      )}
+
                       {link.name}
                     </Link>
                   )}
