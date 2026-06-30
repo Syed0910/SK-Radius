@@ -933,7 +933,7 @@ const babelMetadataPlugin = ({ types: t }) => {
           if (!localName) return;
 
           // Search for usages of this component
-          importPath.parentPath.parentPath.traverse({
+          importPath.parentPath.traverse({
             JSXOpeningElement(jsxPath) {
               if (result) return;
 
@@ -1709,6 +1709,9 @@ const babelMetadataPlugin = ({ types: t }) => {
     visitor: {
       // Add metadata attributes to React components (capitalized JSX)
       JSXElement(jsxPath, state) {
+        const currentFile = state.filename || state.file?.opts?.filename || state.file?.sourceFileName || "";
+        if (/[\\/]components[\\/]three[\\/]/i.test(currentFile)) return;
+
         const openingElement = jsxPath.node.openingElement;
         if (!openingElement?.name) return;
         const elementName = getName(openingElement);
@@ -1719,6 +1722,19 @@ const babelMetadataPlugin = ({ types: t }) => {
           if (hasProp(openingElement, "data-ve-dynamic") || hasProp(openingElement, "x-excluded")) {
             return;
           }
+          
+          // Skip R3F / Three.js lowercase elements
+          const r3fTags = [
+            "group", "points", "lineSegments", "pointsMaterial", "lineBasicMaterial", 
+            "mesh", "boxGeometry", "sphereGeometry", "planeGeometry", "icosahedronGeometry", "ringGeometry",
+            "meshStandardMaterial", "meshBasicMaterial", "ambientLight", 
+            "directionalLight", "pointLight", "primitive", "canvas",
+            "bufferGeometry", "bufferAttribute", "fog"
+          ];
+          if (r3fTags.includes(elementName)) {
+            return;
+          }
+
           wrapDynamicExpressionChildren(jsxPath, t);
           return;
         }
@@ -1968,8 +1984,11 @@ const babelMetadataPlugin = ({ types: t }) => {
         );
       },
 
-      // Add metadata to native HTML elements (lowercase JSX)
+      // Add metadata attributes to native HTML elements (lowercase JSX)
       JSXOpeningElement(jsxPath, state) {
+        const currentFile = state.filename || state.file?.opts?.filename || state.file?.sourceFileName || "";
+        if (/[\\/]components[\\/]three[\\/]/i.test(currentFile)) return;
+
         if (!jsxPath.node.name || !jsxPath.node.name.name) {
           return;
         }
@@ -1983,6 +2002,18 @@ const babelMetadataPlugin = ({ types: t }) => {
 
         // Only process lowercase (native HTML)
         if (/^[A-Z]/.test(elementName)) {
+          return;
+        }
+
+        // Skip R3F / Three.js lowercase elements to prevent runtime crashes
+        const r3fTags = [
+          "group", "points", "lineSegments", "pointsMaterial", "lineBasicMaterial", 
+          "mesh", "boxGeometry", "sphereGeometry", "planeGeometry", 
+          "meshStandardMaterial", "meshBasicMaterial", "ambientLight", 
+          "directionalLight", "pointLight", "primitive", "canvas",
+          "bufferGeometry"
+        ];
+        if (r3fTags.includes(elementName)) {
           return;
         }
 
