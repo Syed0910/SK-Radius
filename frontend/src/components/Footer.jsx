@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Github } from 'lucide
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-[#2d3748]">
+    <footer className="bg-[#161719] border-t border-[#2d3748]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -21,25 +21,25 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-[#c0c0c0] font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/about" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/store" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/store" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   Our Store
                 </Link>
               </li>
               <li>
-                <Link to="/partners" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/partners" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   Our Partners
                 </Link>
               </li>
               <li>
-                <Link to="/clients" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/clients" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   Our Clients
                 </Link>
               </li>
@@ -48,20 +48,20 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Legal</h3>
+            <h3 className="text-[#c0c0c0] font-semibold mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/privacy" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/privacy" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/terms" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/docs" className="text-gray-400 hover:text-[#ff6347] text-sm transition-colors">
+                <Link to="/docs" className="text-gray-400 hover:text-[#fa6e43] text-sm transition-colors">
                   Documentation
                 </Link>
               </li>
@@ -70,16 +70,16 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-[#c0c0c0] font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start space-x-2 text-gray-400 text-sm">
-                <Mail className="h-5 w-5 text-[#ff6347] mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@skradius.com" className="hover:text-[#ff6347] transition-colors">
+                <Mail className="h-5 w-5 text-[#fa6e43] mt-0.5 flex-shrink-0" />
+                <a href="mailto:info@skradius.com" className="hover:text-[#fa6e43] transition-colors">
                   info@skradius.com
                 </a>
               </li>
               <li className="flex items-start space-x-2 text-gray-400 text-sm">
-                <Phone className="h-5 w-5 text-[#ff6347] mt-0.5 flex-shrink-0" />
+                <Phone className="h-5 w-5 text-[#fa6e43] mt-0.5 flex-shrink-0" />
                 <span>+91-XXXXXXXXXX</span>
               </li>
             </ul>
@@ -92,16 +92,16 @@ const Footer = () => {
             © {new Date().getFullYear()} SKRadius. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-[#ff6347] transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#fa6e43] transition-colors">
               <Facebook className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-[#ff6347] transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#fa6e43] transition-colors">
               <Twitter className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-[#ff6347] transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#fa6e43] transition-colors">
               <Linkedin className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-[#ff6347] transition-colors">
+            <a href="#" className="text-gray-400 hover:text-[#fa6e43] transition-colors">
               <Github className="h-5 w-5" />
             </a>
           </div>

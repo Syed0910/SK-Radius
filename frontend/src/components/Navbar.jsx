@@ -85,7 +85,7 @@ const Navbar = () => {
                   )}
                   {link.dropdown ? (
                     <>
-                      <NavigationMenuTrigger className="!bg-transparent focus:!bg-transparent data-[state=open]:!bg-white/5 text-sm font-medium text-gray-300 hover:!text-[#ff6347] data-[state=open]:!text-white transition-colors rounded-lg px-4 h-9">
+                      <NavigationMenuTrigger className="!bg-transparent focus:!bg-transparent data-[state=open]:!bg-white/5 text-sm font-medium text-gray-300 hover:!text-[#fa6e43] data-[state=open]:!text-white transition-colors rounded-lg px-4 h-9">
                         {link.name}
                       </NavigationMenuTrigger>
                       <NavigationMenuContent>
@@ -96,8 +96,8 @@ const Navbar = () => {
                                 to={item.path}
                                 className="group flex items-center justify-between rounded-lg px-4 py-3 no-underline outline-none transition-all hover:bg-white/10"
                               >
-                                <div className="text-sm font-medium text-gray-300 group-hover:text-[#ff6347] transition-colors">{item.name}</div>
-                                <ArrowRight className="w-4 h-4 text-[#ff6347] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                                <div className="text-sm font-medium text-gray-300 group-hover:text-[#fa6e43] transition-colors">{item.name}</div>
+                                <ArrowRight className="w-4 h-4 text-[#fa6e43] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                               </Link>
                             </NavigationMenuLink>
                           ))}
@@ -108,8 +108,8 @@ const Navbar = () => {
                     <Link
                       to={link.path}
                       className={`inline-flex items-center justify-center rounded-lg px-4 h-9 text-sm font-medium transition-colors relative z-10 ${location.pathname === link.path
-                        ? 'text-[#ff6347]'
-                        : 'text-gray-300 hover:text-[#ff6347]'
+                        ? 'text-[#fa6e43]'
+                        : 'text-gray-300 hover:text-[#fa6e43]'
                         }`}
                     >
 
@@ -127,7 +127,7 @@ const Navbar = () => {
 
           <Link
             to="/client-portal"
-            className="group relative inline-flex items-center justify-center rounded-lg bg-[#ff6347] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#ff4520] hover:shadow-[0_0_20px_rgba(255,99,71,0.3)] shadow-[0_0_10px_rgba(255,99,71,0.1)]"
+            className="group relative inline-flex items-center justify-center rounded-lg bg-[#fa6e43] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#fa6e43] hover:shadow-[0_0_20px_rgba(255,99,71,0.3)] shadow-[0_0_10px_rgba(255,99,71,0.1)]"
           >
             <span>Get Started</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -156,7 +156,7 @@ const Navbar = () => {
                               key={item.path}
                               to={item.path}
                               onClick={() => setMobileOpen(false)}
-                              className="block text-lg font-medium text-gray-300 hover:text-[#ff6347] transition-colors py-1 pl-4"
+                              className="block text-lg font-medium text-gray-300 hover:text-[#fa6e43] transition-colors py-1 pl-4"
                             >
                               {item.name}
                             </Link>
@@ -168,7 +168,7 @@ const Navbar = () => {
                         to={link.path}
                         onClick={() => setMobileOpen(false)}
                         className={`block text-xl font-medium transition-colors ${location.pathname === link.path
-                          ? 'text-[#ff6347]'
+                          ? 'text-[#fa6e43]'
                           : 'text-gray-300 hover:text-white'
                           }`}
                       >
@@ -190,7 +190,7 @@ const Navbar = () => {
                 <Link
                   to="/products"
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl bg-[#ff6347] px-5 py-3 text-sm font-semibold text-white transition-all shadow-[0_0_20px_rgba(255,99,71,0.2)]"
+                  className="flex w-full items-center justify-center rounded-xl bg-[#fa6e43] px-5 py-3 text-sm font-semibold text-white transition-all shadow-[0_0_20px_rgba(255,99,71,0.2)]"
                 >
                   <span>Get Started</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
