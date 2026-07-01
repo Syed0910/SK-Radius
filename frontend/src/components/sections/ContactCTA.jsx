@@ -6,7 +6,7 @@ import { GlassCard, PrimaryCTA } from '../ui/premium';
 
 export default function ContactCTA() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0f0f0f] relative overflow-hidden">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#161719] relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-primary/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
@@ -16,7 +16,7 @@ export default function ContactCTA() {
           viewport={{ once: true }}
         >
           <GlassCard className="p-10 md:p-14 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-4">
               Let's Build Your Network
             </h2>
             <p className="text-xl text-gray-400 mb-10 max-w-xl mx-auto">

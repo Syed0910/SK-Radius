@@ -1,53 +1,98 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Check } from 'lucide-react';
-import NetworkCanvas from '../three/scene/NetworkCanvas';
-import { GradientMesh, GridOverlay } from '../ui/AmbientLayers';
-import { PrimaryCTA, GhostButton, LiveBadge, AnimatedHeadline } from '../ui/premium';
+import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
+import { Users, Activity, Server, Eye } from 'lucide-react';
+import { PrimaryCTA, GhostButton, AnimatedHeadline } from '../ui/premium';
 
-const clientLogos = ['NetCore', 'FiberLink', 'AeroISP', 'StreamNet', 'Wavex', 'GridTel'];
+function AnimatedNumber({ value, suffix = "", decimals = 0 }) {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => 
+    latest.toFixed(decimals) + suffix
+  );
+
+  React.useEffect(() => {
+    const controls = animate(count, value, { duration: 2, ease: "easeOut", delay: 0.2 });
+    return controls.stop;
+  }, [value, count]);
+
+  return <motion.span>{rounded}</motion.span>;
+}
+
+const stats = [
+  {
+    title: "10M+",
+    value: 10,
+    suffix: "M+",
+    decimals: 0,
+    desc: "Subscribers Managed",
+    subDesc: "Scaled for growth",
+    icon: Users,
+    delay: 0.2
+  },
+  {
+    title: "99.9%",
+    value: 99.9,
+    suffix: "%",
+    decimals: 1,
+    desc: "Guaranteed Uptime",
+    subDesc: "With 24/7 support",
+    icon: Activity,
+    delay: 0.4
+  },
+  {
+    title: "50+",
+    value: 50,
+    suffix: "+",
+    decimals: 0,
+    desc: "NAS vendor support",
+    subDesc: "Mikrotik, Cisco, Ubiquiti & more",
+    icon: Server,
+    delay: 0.3
+  },
+  {
+    title: "Live Monitor",
+    desc: "Real-time network traffic tracking",
+    subDesc: "Automated issue resolution",
+    icon: Eye,
+    delay: 0.5
+  }
+];
 
 export default function Hero() {
   const ref = React.useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-
-  const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
-  const handleImageMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x: py * -8, y: px * 8 });
-  };
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#0a0a0a]"
+      className="relative min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8"
     >
-      <GradientMesh />
-      <GridOverlay />
-      <NetworkCanvas />
-
       <motion.div style={{ y, opacity }} className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <LiveBadge>Trusted by 500+ ISPs worldwide</LiveBadge>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+          
+          {/* Left Side: Text Content */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left pr-4">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-[#fa6e43] text-lg font-medium mb-4"
+            >
+              ISP Management Platform
+            </motion.p>
 
             <AnimatedHeadline
               text="Innovative ISP Management & Software Solutions For Businesses"
               highlight={['ISP', 'Management']}
-              className="text-5xl md:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight"
+              className="text-7xl md:text-7xl font-bold text-[#e3dbd8] mb-6 leading-[1.1] tracking-tight text-left"
             />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="text-xl text-gray-400 mb-10 leading-relaxed max-w-xl"
+              className="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl text-left"
             >
               We build comprehensive ISP management platforms that automate
               and streamline your network operations — engineered for
@@ -58,7 +103,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.85, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-wrap items-center justify-start gap-4"
             >
               <Link to="/contact">
                 <PrimaryCTA>Contact Us</PrimaryCTA>
@@ -67,105 +112,39 @@ export default function Hero() {
                 <GhostButton>Explore Products</GhostButton>
               </Link>
             </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.1, duration: 0.6 }}
-              className="mt-8 text-sm text-gray-500 flex items-center gap-2"
-            >
-              <Check className="h-4 w-4 text-[#ff6347]" />
-              50+ NAS vendors supported out of the box
-            </motion.p>
-
-            {/* <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.3, duration: 0.8 }}
-              className="mt-12 relative overflow-hidden max-w-xl
-                         [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]"
-            >
-              <div className="flex gap-12 animate-marquee whitespace-nowrap">
-                {[...clientLogos, ...clientLogos].map((logo, i) => (
-                  <span
-                    key={i}
-                    className="text-gray-600 font-semibold text-lg tracking-wide hover:text-[#ff6347]
-                               transition-colors duration-300 cursor-default"
-                  >
-                    {logo}
-                  </span>
-                ))}
-              </div>
-            </motion.div> */}
           </div>
 
-          <motion.div
-            style={{ y: imageY }}
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
-            onMouseMove={handleImageMove}
-            onMouseLeave={() => setTilt({ x: 0, y: 0 })}
-          >
-            <div className="absolute -inset-8 bg-gradient-to-br from-[#ff6347]/20 to-transparent blur-3xl rounded-full" />
+          {/* Right Side: Stats Grid */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:pl-4">
+            {stats.map((stat, idx) => {
+              const isEven = idx % 2 === 0;
+              return (
+                <motion.div
+                  key={stat.title}
+                  initial={{ opacity: 0, y: isEven ? -150 : 150 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 1.2, ease: "easeOut" }}
+                  className={`relative p-4 rounded-2xl bg-gradient-to-b from-[#161719] to-[#fa6e43]/10 border border-white/5 flex flex-col items-center text-center group cursor-pointer hover:border-[#fa6e43]/30 hover:shadow-[0_0_30px_rgba(250,110,67,0.15)] transition-colors transition-shadow duration-300 ${!isEven ? 'sm:mt-6' : ''}`}
+                >
+                  <div className="w-10 h-10 rounded-full bg-[#161719] border border-[#fa6e43]/20 flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(250,110,67,0.15)]">
+                    <stat.icon className="h-5 w-5 text-[#fa6e43]" />
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1.5">
+                    {stat.value !== undefined ? (
+                      <AnimatedNumber value={stat.value} suffix={stat.suffix} decimals={stat.decimals} />
+                    ) : (
+                      stat.title
+                    )}
+                  </h3>
+                  <p className="text-[11px] text-gray-400 leading-relaxed mb-0.5">{stat.desc}</p>
+                  <p className="text-[11px] text-[#fa6e43] opacity-80">{stat.subDesc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
 
-            <motion.div
-              animate={{ rotateX: tilt.x, rotateY: tilt.y }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-              style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
-              className="relative rounded-2xl border border-white/10 shadow-2xl overflow-hidden"
-            >
-              <img
-                src="https://customer-assets.emergentagent.com/job_radius-management/artifacts/5eppgptp_ChatGPT%20Image%20Feb%2014%2C%202026%2C%2005_13_53%20PM.png"
-                alt="ISP Management Dashboard"
-                className="w-full rounded-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/40 via-transparent to-transparent" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -20, y: 20 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.7 }}
-              whileHover={{ y: -4 }}
-              className="absolute -bottom-6 -left-6 rounded-xl border border-white/10
-                         bg-[#0f0f0f]/90 backdrop-blur-xl px-6 py-4 shadow-2xl"
-            >
-              <p className="text-2xl font-bold text-white">99.9%</p>
-              <p className="text-xs text-gray-400">Uptime guaranteed</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20, y: -20 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.7 }}
-              whileHover={{ y: -4 }}
-              className="absolute -top-6 -right-6 rounded-xl border border-white/10
-                         bg-[#0f0f0f]/90 backdrop-blur-xl px-5 py-3 shadow-2xl flex items-center gap-3"
-            >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
-              </span>
-              <p className="text-sm text-white font-medium">Live monitoring active</p>
-            </motion.div>
-          </motion.div>
         </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-      >
-        {/* <span className="text-xs text-gray-500 tracking-widest uppercase">Scroll</span> */}
-        {/* <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-8 bg-gradient-to-b from-[#ff6347] to-transparent"
-        /> */}
       </motion.div>
     </section>
   );

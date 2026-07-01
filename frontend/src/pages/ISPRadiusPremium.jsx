@@ -80,15 +80,15 @@ const ISPRadiusPremium = () => {
   ];
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen">
+    <div className="bg-[#161719] min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-950 to-orange-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-slate-950 to-[#fa6e43]/20"></div>
         
         {/* Subtle animated background elements */}
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-20 left-20 w-72 h-72 bg-[#ff6347]/10 rounded-full blur-3xl"
+            className="absolute top-20 left-20 w-72 h-72 bg-[#fa6e43]/10 rounded-full blur-3xl"
             animate={{
               x: [0, 20, 0],
               y: [0, -20, 0],
@@ -124,14 +124,14 @@ const ISPRadiusPremium = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-[#ff6347]/10 border border-[#ff6347]/20 rounded-full mb-6"
+              className="inline-flex items-center px-4 py-2 bg-[#fa6e43]/10 border border-[#fa6e43]/20 rounded-full mb-6"
             >
-              <span className="text-[#ff6347] text-sm font-medium">🚀 ENTERPRISE EDITION</span>
+              <span className="text-[#fa6e43] text-sm font-medium">🚀 ENTERPRISE EDITION</span>
             </motion.div>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-[#e3dbd8] mb-6">
               ISP Radius Premium
             </h1>
-            <p className="text-2xl text-[#ff6347] mb-6">
+            <p className="text-2xl text-[#fa6e43] mb-6">
               Enterprise ISP Automation & Advanced AAA Control Platform
             </p>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto">
@@ -156,8 +156,8 @@ const ISPRadiusPremium = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex flex-col items-center text-center"
               >
-                <div className="w-12 h-12 rounded-lg bg-[#ff6347]/20 flex items-center justify-center mb-3">
-                  <item.icon className="h-6 w-6 text-[#ff6347]" />
+                <div className="w-12 h-12 rounded-lg bg-[#fa6e43]/20 flex items-center justify-center mb-3">
+                  <item.icon className="h-6 w-6 text-[#fa6e43]" />
                 </div>
                 <p className="text-sm text-gray-300">{item.text}</p>
               </motion.div>
@@ -174,7 +174,7 @@ const ISPRadiusPremium = () => {
             <div className="relative max-w-4xl w-full">
               <img
                 src="/images/user-details.png"
-                className="w-full h-auto rounded-lg shadow-2xl border border-[#1a1a1a]"
+                className="w-full h-auto rounded-lg shadow-2xl border border-[#161719]"
               />
             </div>
           </motion.div>
@@ -204,14 +204,14 @@ const ISPRadiusPremium = () => {
                     scale: 1.05,
                     y: -5
                   }}
-                  className="text-center p-6 rounded-lg bg-[#0f0f0f]/50 border border-[#1a1a1a] hover:border-[#ff6347]/50 transition-all duration-300"
+                  className="text-center p-6 rounded-lg bg-[#161719]/50 border border-[#161719] hover:border-[#fa6e43]/50 transition-all duration-300"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 + index * 0.1, type: "spring", stiffness: 200 }}
-                    className="text-4xl md:text-5xl font-bold text-[#ff6347] mb-2"
+                    className="text-4xl md:text-5xl font-bold text-[#fa6e43] mb-2"
                   >
                     <CountingNumber
                       target={stat.number}
@@ -231,7 +231,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Software Screenshots Section (copied from standard) */}
-      <section className="py-20 bg-[#0f0f0f]/30">
+      <section className="py-20 bg-[#161719]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -239,7 +239,7 @@ const ISPRadiusPremium = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Software Screenshots</h2>
+            <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Software Screenshots</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Discover our intuitive web application interface built for seamless business management.
             </p>
@@ -278,9 +278,9 @@ const ISPRadiusPremium = () => {
                   boxShadow: "0 10px 30px rgba(255, 99, 71, 0.3)"
                 }}
                 onClick={() => setSelectedImage(screenshot)}
-                className="relative overflow-hidden rounded-lg border border-[#1a1a1a] hover:border-[#ff6347]/50 transition-all duration-300 cursor-pointer"
+                className="relative overflow-hidden rounded-lg border border-[#161719] hover:border-[#fa6e43]/50 transition-all duration-300 cursor-pointer"
               >
-                <div className="aspect-video bg-[#0a0a0a] flex items-center justify-center">
+                <div className="aspect-video bg-[#161719] flex items-center justify-center">
                   <img
                     src={`/images/${screenshot.id}.png`}
                     alt={screenshot.name}
@@ -304,7 +304,7 @@ const ISPRadiusPremium = () => {
 
       {/* Key Features */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ff6347]/5 via-transparent to-[#ff6347]/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fa6e43]/5 via-transparent to-[#fa6e43]/5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -312,7 +312,7 @@ const ISPRadiusPremium = () => {
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold text-[#c0c0c0] mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Premium Key Features
             </h2>
             <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
@@ -342,9 +342,9 @@ const ISPRadiusPremium = () => {
                   className="relative group my-12"
                 >
                   {/* Glow background */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#ff6347]/10 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition duration-500"></div>
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#fa6e43]/10 to-transparent opacity-0 group-hover:opacity-100 blur-xl transition duration-500"></div>
 
-                  <div className="relative bg-[#0f0f0f]/80 backdrop-blur-md border border-[#1a1a1a] rounded-2xl p-12 transition-all duration-500 group-hover:border-[#ff6347]/40">
+                  <div className="relative bg-[#161719]/80 backdrop-blur-md border border-[#161719] rounded-2xl p-12 transition-all duration-500 group-hover:border-[#fa6e43]/40">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                       <motion.div
                         initial={{ x: -200, opacity: 0 }}
@@ -377,7 +377,7 @@ const ISPRadiusPremium = () => {
                           ease: [0.25, 0.46, 0.45, 0.94],
                         }}
                       >
-                        <h3 className="text-3xl font-bold text-white mb-8 group-hover:text-[#ff6347] transition-colors duration-300">
+                        <h3 className="text-3xl font-bold text-[#c0c0c0] mb-8 group-hover:text-[#fa6e43] transition-colors duration-300">
                           {feature.title}
                         </h3>
                         <p className="text-gray-400 text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
@@ -402,7 +402,7 @@ const ISPRadiusPremium = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#ff6347] to-[#ff4520] text-white font-semibold rounded-full hover:shadow-[0_0_30px_rgba(255,99,71,0.5)] transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#fa6e43] to-[#fa6e43] text-white font-semibold rounded-full hover:shadow-[0_0_30px_rgba(255,99,71,0.5)] transition-all duration-300 cursor-pointer"
             >
               <span>Explore All Features</span>
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -412,7 +412,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Expanded Features - Same tabs as ISP Radius but with "Enterprise" badge */}
-      <section className="py-20 bg-[#0f0f0f]/30">
+      <section className="py-20 bg-[#161719]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -420,14 +420,14 @@ const ISPRadiusPremium = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Enterprise Features</h2>
+            <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Enterprise Features</h2>
             <p className="text-lg text-gray-300">
               All standard features plus advanced enterprise capabilities
             </p>
           </motion.div>
 
           <Tabs defaultValue="network" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#0f0f0f]">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 bg-[#161719]">
               <TabsTrigger value="network">Network Management</TabsTrigger>
               <TabsTrigger value="billing">Billing & Finance</TabsTrigger>
               <TabsTrigger value="user">User Management</TabsTrigger>
@@ -448,11 +448,11 @@ const ISPRadiusPremium = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#0f0f0f]/50 hover:bg-[#0f0f0f] transition-colors"
+                      className="flex items-start space-x-3 p-4 rounded-lg bg-[#161719]/50 hover:bg-[#161719] transition-colors"
                     >
-                      <Check className="h-5 w-5 text-[#ff6347] mt-0.5 flex-shrink-0" />
+                      <Check className="h-5 w-5 text-[#fa6e43] mt-0.5 flex-shrink-0" />
                       <div>
-                        <h4 className="text-white font-medium mb-1">{item.title}</h4>
+                        <h4 className="text-[#c0c0c0] font-medium mb-1">{item.title}</h4>
                         <p className="text-sm text-gray-400">{item.description}</p>
                       </div>
                     </motion.div>
@@ -473,7 +473,7 @@ const ISPRadiusPremium = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Premium Pricing</h2>
+            <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Premium Pricing</h2>
             <p className="text-lg text-gray-300">
               Flexible enterprise pricing tailored for high-capacity ISP networks
             </p>
@@ -488,29 +488,29 @@ const ISPRadiusPremium = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347] hover:shadow-lg hover:shadow-[#ff6347]/20 transition-all">
+                <Card className="h-full bg-gradient-to-br from-[#fa6e43]/30 to-[#161719] border-[#fa6e43] hover:shadow-lg hover:shadow-[#fa6e43]/20 transition-all">
                   <CardHeader>
                     <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
                     <CardDescription className="text-gray-400">{plan.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="mb-6">
-                      <span className="text-4xl font-bold text-[#ff6347]">
+                      <span className="text-4xl font-bold text-[#fa6e43]">
                         {typeof plan.price === 'number' ? `$${plan.price}` : plan.price}
                       </span>
                       {typeof plan.price === 'number' && <span className="text-gray-400"> / month</span>}
                     </div>
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-center text-gray-300">
-                        <Check className="h-5 w-5 text-[#ff6347] mr-2" />
+                        <Check className="h-5 w-5 text-[#fa6e43] mr-2" />
                         Up to {plan.users} subscribers
                       </li>
                       <li className="flex items-center text-gray-300">
-                        <Check className="h-5 w-5 text-[#ff6347] mr-2" />
+                        <Check className="h-5 w-5 text-[#fa6e43] mr-2" />
                         {plan.nas} NAS/Routers
                       </li>
                     </ul>
-                    <Button className="w-full bg-[#ff6347] hover:bg-[#ff4520] text-white">
+                    <Button className="w-full bg-[#fa6e43] hover:bg-[#fa6e43] text-white">
                       {plan.name.includes('Advanced') ? 'Contact Us' : 'Get Started'}
                     </Button>
                   </CardContent>
@@ -524,7 +524,7 @@ const ISPRadiusPremium = () => {
       {/* Why Choose Us Section (copied from standard) */}
       <section className="py-24 relative overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ff6347]/5 via-transparent to-[#ff6347]/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fa6e43]/5 via-transparent to-[#fa6e43]/5"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div
@@ -538,11 +538,11 @@ const ISPRadiusPremium = () => {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-[#ff6347]/10 border border-[#ff6347]/20 rounded-full mb-6"
+              className="inline-flex items-center px-4 py-2 bg-[#fa6e43]/10 border border-[#fa6e43]/20 rounded-full mb-6"
             >
-              <span className="text-[#ff6347] text-sm font-medium">Why Choose Us</span>
+              <span className="text-[#fa6e43] text-sm font-medium">Why Choose Us</span>
             </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Why Choose ISP Radius Premium?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -562,10 +562,10 @@ const ISPRadiusPremium = () => {
                 className="group relative"
               >
                 {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ff6347]/10 to-[#ff6347]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#fa6e43]/10 to-[#fa6e43]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl"></div>
                 
                 {/* Main card */}
-                <div className="relative bg-[#0f0f0f]/80 backdrop-blur-sm border border-[#1a1a1a] rounded-2xl p-8 group-hover:border-[#ff6347]/50 transition-all duration-500 h-full">
+                <div className="relative bg-[#161719]/80 backdrop-blur-sm border border-[#161719] rounded-2xl p-8 group-hover:border-[#fa6e43]/50 transition-all duration-500 h-full">
                   {/* Icon */}
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
@@ -573,12 +573,12 @@ const ISPRadiusPremium = () => {
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 + index * 0.1 }}
                     whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-16 h-16 bg-gradient-to-br from-[#ff6347]/20 to-[#ff6347]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:from-[#ff6347]/30 group-hover:to-[#ff6347]/20 transition-all duration-500"
+                    className="w-16 h-16 bg-gradient-to-br from-[#fa6e43]/20 to-[#fa6e43]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:from-[#fa6e43]/30 group-hover:to-[#fa6e43]/20 transition-all duration-500"
                   >
-                    <item.icon className="h-8 w-8 text-[#ff6347]" />
+                    <item.icon className="h-8 w-8 text-[#fa6e43]" />
                   </motion.div>
 
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-[#ff6347] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-[#c0c0c0] mb-4 group-hover:text-[#fa6e43] transition-colors duration-300">
                     {item.title}
                   </h3>
                   <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
@@ -590,7 +590,7 @@ const ISPRadiusPremium = () => {
                     initial={{ width: 0 }}
                     whileHover={{ width: "60px" }}
                     transition={{ duration: 0.3 }}
-                    className="h-1 bg-gradient-to-r from-[#ff6347] to-transparent mt-6 rounded-full"
+                    className="h-1 bg-gradient-to-r from-[#fa6e43] to-transparent mt-6 rounded-full"
                   />
                 </div>
               </motion.div>
@@ -608,14 +608,14 @@ const ISPRadiusPremium = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-gray-300">Find answers to common questions about ISP Radius Premium</p>
           </motion.div>
 
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-[#1a1a1a]">
-                <AccordionTrigger className="text-white hover:text-[#ff6347] transition-colors">
+              <AccordionItem key={index} value={`item-${index}`} className="border-[#161719]">
+                <AccordionTrigger className="text-white hover:text-[#fa6e43] transition-colors">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-400">
@@ -628,7 +628,7 @@ const ISPRadiusPremium = () => {
       </section>
 
       {/* Comparison Section */}
-      <section className="py-20 bg-[#0f0f0f]/30">
+      <section className="py-20 bg-[#161719]/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -636,14 +636,14 @@ const ISPRadiusPremium = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Premium vs Standard</h2>
+            <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Premium vs Standard</h2>
             <p className="text-lg text-gray-300">
               Understanding the difference between ISP Radius and ISP Radius Premium
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="bg-[#0f0f0f]/50 border-blue-500/50">
+            <Card className="bg-[#161719]/50 border-blue-500/50">
               <CardHeader>
                 <CardTitle className="text-2xl text-blue-400">ISP Radius</CardTitle>
                 <CardDescription>Standard Edition</CardDescription>
@@ -673,31 +673,31 @@ const ISPRadiusPremium = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-orange-900/30 to-[#1a2332] border-[#ff6347]">
+            <Card className="bg-gradient-to-br from-[#fa6e43]/30 to-[#161719] border-[#fa6e43]">
               <CardHeader>
-                <CardTitle className="text-2xl text-orange-400">ISP Radius Premium</CardTitle>
+                <CardTitle className="text-2xl text-[#fa6e43]">ISP Radius Premium</CardTitle>
                 <CardDescription>Enterprise Edition</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#fa6e43] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Everything in Standard +</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#fa6e43] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Advanced bandwidth rule engine</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#fa6e43] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Executive analytics dashboards</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#fa6e43] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Priority 24/7 support</span>
                   </li>
                   <li className="flex items-start">
-                    <Check className="h-5 w-5 text-[#ff6347] mr-2 mt-0.5" />
+                    <Check className="h-5 w-5 text-[#fa6e43] mr-2 mt-0.5" />
                     <span className="text-gray-300 text-sm">Full API integration</span>
                   </li>
                 </ul>
@@ -712,13 +712,13 @@ const ISPRadiusPremium = () => {
 
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-900/20 to-blue-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#fa6e43]/20 to-blue-900/20"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Upgrade to Premium Today</h2>
+          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-6">Upgrade to Premium Today</h2>
           <p className="text-lg text-gray-300 mb-8">
             Experience enterprise-grade performance and priority support
           </p>
-          <Button size="lg" className="bg-[#ff6347] hover:bg-[#ff4520] text-white px-12 py-6 text-lg group">
+          <Button size="lg" className="bg-[#fa6e43] hover:bg-[#fa6e43] text-white px-12 py-6 text-lg group">
             Contact Enterprise Sales
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
@@ -732,7 +732,7 @@ const ISPRadiusPremium = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#161719]/80 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
           <motion.div
@@ -749,9 +749,9 @@ const ISPRadiusPremium = () => {
             >
               <X className="h-6 w-6" />
             </button>
-            <div className="bg-[#0a0a0a] rounded-lg overflow-hidden border border-[#1a1a1a]">
-              <div className="p-4 border-b border-[#1a1a1a]">
-                <h3 className="text-xl font-semibold text-white">{selectedImage.name}</h3>
+            <div className="bg-[#161719] rounded-lg overflow-hidden border border-[#161719]">
+              <div className="p-4 border-b border-[#161719]">
+                <h3 className="text-xl font-semibold text-[#c0c0c0]">{selectedImage.name}</h3>
               </div>
               <div className="relative">
                 <img

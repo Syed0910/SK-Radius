@@ -26,7 +26,7 @@ const reviews = [
 
 export default function Reviews() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a]">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#161719]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,7 +34,7 @@ export default function Reviews() {
           viewport={{ once: true }}
           className="text-center mb-16 max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Trusted by ISPs Worldwide</h2>
+          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Trusted by ISPs Worldwide</h2>
           <p className="text-xl text-gray-400">
             Real outcomes from teams running their network operations on our platform.
           </p>

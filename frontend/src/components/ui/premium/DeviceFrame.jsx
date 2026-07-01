@@ -10,8 +10,8 @@ export default function DeviceFrame({ src, alt }) {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className="relative group"
     >
-      <div className="absolute -inset-6 bg-gradient-to-br from-[#ff6347]/15 to-transparent blur-3xl rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
-      <div className="relative rounded-xl border border-white/10 bg-[#0f0f0f] shadow-2xl overflow-hidden">
+      <div className="absolute -inset-6 bg-gradient-to-br from-[#fa6e43]/15 to-transparent blur-3xl rounded-full opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+      <div className="relative rounded-xl border border-white/10 bg-[#161719] shadow-2xl overflow-hidden">
         <div className="flex items-center gap-1.5 px-4 py-3 border-b border-white/5 bg-[#141414]">
           <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
           <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />

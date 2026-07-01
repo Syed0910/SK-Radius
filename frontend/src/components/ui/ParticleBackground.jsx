@@ -102,8 +102,8 @@ export default function ParticleBackground() {
   return (
     <div className="absolute inset-0 w-full h-full bg-[#030303] overflow-hidden pointer-events-none z-0">
       {/* Gradients to seamlessly blend the Canvas into the dark page background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a] z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#ff6347]/5 to-[#ff6347]/10 z-10 pointer-events-none mix-blend-screen" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#161719]/50 to-[#161719] z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-[#fa6e43]/5 to-[#fa6e43]/10 z-10 pointer-events-none mix-blend-screen" />
 
       <div className="w-full h-full">
         <Canvas

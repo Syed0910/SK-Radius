@@ -19,7 +19,7 @@ function getCSSColor(varName, fallback) {
 export default function NetworkScene({
   nodeCount = NODE_COUNT,
   connectionDistance = CONNECTION_DISTANCE,
-  color = getCSSColor('--primary', '#ff6347'),
+  color = getCSSColor('--primary', '#fa6e43'),
 }) {
   const pointsGeoRef = useRef();
   const lineGeoRef = useRef();

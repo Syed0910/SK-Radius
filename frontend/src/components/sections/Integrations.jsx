@@ -15,7 +15,7 @@ const integrations = [
 
 export default function Integrations() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0f0f0f]">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#161719]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -23,7 +23,7 @@ export default function Integrations() {
           viewport={{ once: true }}
           className="text-center mb-16 max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">Works With Your Stack</h2>
+          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">Works With Your Stack</h2>
           <p className="text-xl text-gray-400">
             Native integration with 50+ NAS and router vendors — no custom middleware required.
           </p>
@@ -44,7 +44,7 @@ export default function Integrations() {
                     {item.name.slice(0, 2).toUpperCase()}
                   </span>
                 </div>
-                <h4 className="text-white font-semibold mb-1">{item.name}</h4>
+                <h4 className="text-[#c0c0c0] font-semibold mb-1">{item.name}</h4>
                 <p className="text-xs text-gray-500 leading-relaxed">{item.detail}</p>
               </GlassCard>
             </motion.div>

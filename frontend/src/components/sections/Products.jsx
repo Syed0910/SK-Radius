@@ -7,7 +7,7 @@ import { DeviceFrame, PrimaryCTA, GhostButton } from '../ui/premium';
 
 export default function Products() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a]">
+    <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#161719]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -15,7 +15,7 @@ export default function Products() {
           viewport={{ once: true }}
           className="text-center mb-20 max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">
             Our Ready-Made Software Solutions
           </h2>
           <p className="text-xl text-gray-400">
@@ -27,7 +27,7 @@ export default function Products() {
         <div className="mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-7">
-              <h3 className="text-4xl font-bold text-white mb-2">ISP Radius</h3>
+              <h3 className="text-4xl font-bold text-[#c0c0c0] mb-2">ISP Radius</h3>
               <p className="text-gray-400 mb-2 max-w-lg">
                 A comprehensive solution with built-in Radius (AAA) supporting 50+ Router/NAS vendors.
               </p>
@@ -77,7 +77,7 @@ export default function Products() {
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-7">
-              <h3 className="text-4xl font-bold text-white mb-2">ISP Radius Log Server</h3>
+              <h3 className="text-4xl font-bold text-[#c0c0c0] mb-2">ISP Radius Log Server</h3>
               <p className="text-gray-400 mb-2 max-w-lg">
                 Manage all types of logs in one place with our powerful and lightweight solution.
               </p>
