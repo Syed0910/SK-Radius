@@ -209,14 +209,19 @@ const ISPRadius = () => {
                   }}
                   className="relative w-full"
                 >
-                  <div className="rounded-[2rem] overflow-hidden border border-white/10 bg-[#161719] shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="rounded-[2rem] overflow-hidden border border-white/10 bg-[#161719] shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative"
+                  >
                     {/* Image & Pixelated Grid Mask */}
                     <div className="relative overflow-hidden">
                       <motion.img
-                        initial={{ filter: "blur(20px)", scale: 1.05 }}
-                        whileInView={{ filter: "blur(0px)", scale: 1 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 2, ease: "easeOut" }}
+                        variants={{
+                          hidden: { filter: "blur(20px)", scale: 1.05 },
+                          visible: { filter: "blur(0px)", scale: 1, transition: { duration: 2, ease: "easeOut" } }
+                        }}
                         src="/images/dashboard.png"
                         alt="ISP Radius Dashboard"
                         className="w-full h-auto object-cover opacity-90"
@@ -230,10 +235,10 @@ const ISPRadius = () => {
                         {Array.from({ length: 160 }).map((_, i) => (
                           <motion.div
                             key={i}
-                            initial={{ opacity: 1 }}
-                            whileInView={{ opacity: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.4, delay: Math.random() * 1.5, ease: "easeOut" }}
+                            variants={{
+                              hidden: { opacity: 1 },
+                              visible: { opacity: 0, transition: { duration: 0.4, delay: Math.random() * 1.5, ease: "easeOut" } }
+                            }}
                             className="bg-[#161719]"
                             style={{ transform: 'scale(1.05)' }}
                           />
@@ -243,7 +248,7 @@ const ISPRadius = () => {
                       {/* Bottom gradient mask */}
 
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
 
@@ -391,12 +396,17 @@ const ISPRadius = () => {
                 onClick={() => setSelectedImage(screenshot)}
                 className="relative overflow-hidden rounded-lg border border-[#161719] hover:border-[#fa6e43]/50 transition-all duration-300 cursor-pointer"
               >
-                <div className="aspect-video bg-[#161719] flex items-center justify-center relative overflow-hidden">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="aspect-video bg-[#161719] flex items-center justify-center relative overflow-hidden"
+                >
                   <motion.img
-                    initial={{ filter: "blur(10px)", scale: 1.1 }}
-                    whileInView={{ filter: "blur(0px)", scale: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.1 }}
+                    variants={{
+                      hidden: { filter: "blur(10px)", scale: 1.1 },
+                      visible: { filter: "blur(0px)", scale: 1, transition: { duration: 1.5, ease: "easeOut", delay: index * 0.1 } }
+                    }}
                     src={`/images/${screenshot.id}.png`}
                     alt={screenshot.name}
                     className="w-full h-full object-cover"
@@ -413,16 +423,16 @@ const ISPRadius = () => {
                     {Array.from({ length: 48 }).map((_, i) => (
                       <motion.div
                         key={i}
-                        initial={{ opacity: 1 }}
-                        whileInView={{ opacity: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.3, delay: (index * 0.1) + Math.random() * 0.8, ease: "easeOut" }}
+                        variants={{
+                          hidden: { opacity: 1 },
+                          visible: { opacity: 0, transition: { duration: 0.3, delay: (index * 0.1) + Math.random() * 0.8, ease: "easeOut" } }
+                        }}
                         className="bg-[#161719]"
                         style={{ transform: 'scale(1.05)' }}
                       />
                     ))}
                   </div>
-                </div>
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4 right-4">
                     <p className="text-white text-sm font-medium">{screenshot.name}</p>
