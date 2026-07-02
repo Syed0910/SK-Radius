@@ -138,7 +138,7 @@ export default function Hero() {
                     )}
                   </h3>
                   <p className="text-[11px] text-gray-400 leading-relaxed mb-0.5">{stat.desc}</p>
-                  <p className="text-[11px] text-[#fa6e43] opacity-80">{stat.subDesc}</p>
+                  <p className="text-[11px] text-gray-400 opacity-80">{stat.subDesc}</p>
                 </motion.div>
               );
             })}

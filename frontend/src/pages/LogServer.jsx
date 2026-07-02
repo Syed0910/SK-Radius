@@ -292,13 +292,18 @@ const LogServer = () => {
                   }}
                   className="relative w-full"
                 >
-                  <div className="rounded-[2rem] overflow-hidden border border-white/10 bg-[#161719] shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative">
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="rounded-[2rem] overflow-hidden border border-white/10 bg-[#161719] shadow-[0_30px_60px_rgba(0,0,0,0.6)] relative"
+                  >
                     <div className="relative overflow-hidden">
                       <motion.img
-                        initial={{ filter: "blur(20px)", scale: 1.05 }}
-                        whileInView={{ filter: "blur(0px)", scale: 1 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 2, ease: "easeOut" }}
+                        variants={{
+                          hidden: { filter: "blur(20px)", scale: 1.05 },
+                          visible: { filter: "blur(0px)", scale: 1, transition: { duration: 2, ease: "easeOut" } }
+                        }}
                         src="/images/abc-logserver.png"
                         alt="Log Server Dashboard"
                         className="w-full h-auto object-cover opacity-90"
@@ -311,17 +316,17 @@ const LogServer = () => {
                         {Array.from({ length: 160 }).map((_, i) => (
                           <motion.div
                             key={i}
-                            initial={{ opacity: 1 }}
-                            whileInView={{ opacity: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.4, delay: Math.random() * 1.5, ease: "easeOut" }}
+                            variants={{
+                              hidden: { opacity: 1 },
+                              visible: { opacity: 0, transition: { duration: 0.4, delay: Math.random() * 1.5, ease: "easeOut" } }
+                            }}
                             className="bg-[#161719]"
                             style={{ transform: 'scale(1.05)' }}
                           />
                         ))}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               </div>
 

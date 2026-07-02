@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import Hero from '../components/sections/Hero';
 import { NumberedFeature } from '../components/sections/FeatureRow';
 import { DeviceFrame } from '../components/ui/premium';
-// import Stats from '../components/sections/Stats';
+import IntegrationsMarquee from '../components/sections/IntegrationsMarquee';
 import Products from '../components/sections/Products';
 import Integrations from '../components/sections/Integrations';
 import Reviews from '../components/sections/Reviews';
@@ -17,23 +17,25 @@ import { GradientMesh, GridOverlay } from '../components/ui/AmbientLayers';
 
 const Home = () => {
   return (
-    <div className="bg-[#161719]">
+    <div className="bg-[#161719] -mt-20">
       {/* Shared Background for Hero and Stats */}
-      <div className="relative overflow-hidden">
-        <GradientMesh />
-        <GridOverlay />
-        <NetworkCanvas />
+      <div className="relative">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
+          <GradientMesh />
+          <GridOverlay />
+          <NetworkCanvas />
+        </div>
         
-        <div className="relative z-10">
+        <div className="relative z-10 -mt-[100vh]">
           <Hero />
-          {/* <Stats /> */}
+          <IntegrationsMarquee />
         </div>
       </div>
 
       {/* Products Section */}
       <Products />
       {/* Integrations Section */}
-      <Integrations />
+      {/* <Integrations /> */}
       {/* Reviews Section */}
       <Reviews />
       {/* Contact Section */}
