@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import TR069 from "./pages/TR069";
 import { Toaster } from "./components/ui/toaster";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -29,6 +30,7 @@ function App() {
             <Route path="products/isp-radius" element={<ISPRadius />} />
             <Route path="products/isp-radius-premium" element={<ISPRadiusPremium />} />
             <Route path="products/log-server" element={<LogServer />} />
+            <Route path="tr069" element={<TR069 />} />
             <Route path="store" element={<Store />} />
             <Route path="client-portal" element={<ClientPortal />} />
             <Route path="partners" element={<Partners />} />

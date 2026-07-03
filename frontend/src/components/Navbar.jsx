@@ -37,6 +37,7 @@ const Navbar = () => {
         { name: 'ISP Radius Log Server', path: '/products/log-server' }
       ]
     },
+    { name: 'TR-069', path: '/tr069' },
     // { name: 'Our Store', path: '/store' },
     { name: 'Client Portal', path: '/client-portal' },
     // { name: 'Our Partners', path: '/partners' },
