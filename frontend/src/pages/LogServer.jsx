@@ -742,15 +742,18 @@ const LogServer = () => {
                       ))}
                     </div>
 
-                    <Button 
-                      className={`w-full py-6 text-lg font-semibold rounded-xl transition-all duration-300 ${
+                    <a
+                      href="https://license.aanirids.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center w-full py-6 text-lg font-semibold rounded-xl transition-all duration-300 ${
                         isPopular 
                           ? 'bg-[#fa6e43] hover:bg-[#fa6e43] text-white shadow-lg shadow-[#fa6e43]/25 hover:shadow-[#fa6e43]/40 border-none' 
                           : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
                       }`}
                     >
                       Get Started
-                    </Button>
+                    </a>
                   </div>
                 </motion.div>
               );

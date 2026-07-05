@@ -108,7 +108,7 @@ export default function Hero() {
               <Link to="/contact">
                 <PrimaryCTA>Contact Us</PrimaryCTA>
               </Link>
-              <Link to="/products">
+              <Link to="/products/isp-radius">
                 <GhostButton>Explore Products</GhostButton>
               </Link>
             </motion.div>
