@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { Zap, Shield, TrendingUp, Activity, Search, Bell } from 'lucide-react';
+import { Zap, Shield, TrendingUp, Activity, Search, Bell, Network, Wifi, RefreshCw } from 'lucide-react';
 import { PrimaryCTA, GhostButton } from '../ui/premium';
 
 const TimelineFeature = ({ icon: Icon, title, description, index, progress }) => {
@@ -133,6 +133,17 @@ export default function Products() {
     restDelta: 0.001
   });
 
+  const trFeaturesRef = useRef(null);
+  const { scrollYProgress: trRawProgress } = useScroll({
+    target: trFeaturesRef,
+    offset: ["start 80%", "end 50%"]
+  });
+  const trTimelineProgress = useSpring(trRawProgress, {
+    stiffness: 50,
+    damping: 20,
+    restDelta: 0.001
+  });
+
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-[#161719]">
       <div className="max-w-7xl mx-auto">
@@ -215,7 +226,7 @@ export default function Products() {
         </div>
 
         {/* Log Server */}
-        <div>
+        <div className="mb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
@@ -276,6 +287,80 @@ export default function Products() {
             </div>
           </div>
         </div>
+
+        {/* TR-069 ACS */}
+        <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* Text: left column */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-2 lg:order-1 space-y-7"
+            >
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#fa6e43]/10 border border-[#fa6e43]/20 rounded-full">
+                <Network className="w-3.5 h-3.5 text-[#fa6e43]" />
+                <span className="text-[#fa6e43] text-xs font-medium tracking-wide">TR-069 ACS</span>
+              </div>
+
+              <h3 className="text-4xl font-bold text-[#c0c0c0] mb-2">SK Radius TR-069</h3>
+              <p className="text-gray-400 mb-2 max-w-lg">
+                A built-in Auto Configuration Server (ACS) to remotely provision, monitor, and manage every CPE router and ONT on your network — zero truck rolls needed.
+              </p>
+
+              <div ref={trFeaturesRef} className="relative mt-8 ml-2 mb-6">
+                <div className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-[#161719]" />
+                <motion.div
+                  className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-gradient-to-b from-[#fa6e43] to-[#fa6e43] origin-top"
+                  style={{ scaleY: trTimelineProgress }}
+                />
+                <div className="flex flex-col relative z-10">
+                  <TimelineFeature
+                    index={0}
+                    icon={Zap}
+                    title="Zero-Touch Provisioning"
+                    description="Automatically discover, register, and configure customer routers the moment they connect — no manual setup required."
+                    progress={trTimelineProgress}
+                  />
+                  <TimelineFeature
+                    index={1}
+                    icon={Wifi}
+                    title="Remote WiFi & WAN Control"
+                    description="Change SSIDs, passwords, WAN settings, and DNS across thousands of devices from a single dashboard."
+                    progress={trTimelineProgress}
+                  />
+                  <TimelineFeature
+                    index={2}
+                    icon={RefreshCw}
+                    title="Bulk Firmware & Diagnostics"
+                    description="Schedule mass firmware upgrades and run real-time ping, trace route, and speed tests remotely on any CPE."
+                    progress={trTimelineProgress}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link to="/tr069">
+                  <PrimaryCTA>More Details</PrimaryCTA>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Image: right column */}
+            <div className="order-1 lg:order-2">
+              <ProductImageReveal
+                src="/images/tr-069.png"
+                alt="TR-069 ACS Dashboard"
+                initialX={50}
+              />
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );
