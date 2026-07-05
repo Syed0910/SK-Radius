@@ -39,7 +39,7 @@ const Navbar = () => {
     },
     { name: 'TR-069', path: '/tr069' },
     // { name: 'Our Store', path: '/store' },
-    { name: 'Client Portal', path: '/client-portal' },
+    { name: 'Client Portal', path: 'https://license.aanirids.com/', external: true },
     // { name: 'Our Partners', path: '/partners' },
     // { name: 'Our Clients', path: '/clients' },
     { name: 'Docs', path: '/docs' }
@@ -105,6 +105,15 @@ const Navbar = () => {
                         </div>
                       </NavigationMenuContent>
                     </>
+                  ) : link.external ? (
+                    <a
+                      href={link.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center justify-center rounded-lg px-4 h-9 text-sm font-medium transition-colors relative z-10 text-gray-300 hover:text-[#fa6e43]`}
+                    >
+                      {link.name}
+                    </a>
                   ) : (
                     <Link
                       to={link.path}
@@ -126,13 +135,15 @@ const Navbar = () => {
         {/* Action Button */}
         <div className="hidden lg:flex items-center space-x-4 z-10">
 
-          <Link
-            to="/client-portal"
+          <a
+            href="https://license.aanirids.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center rounded-lg bg-[#fa6e43] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#fa6e43] hover:shadow-[0_0_20px_rgba(255,99,71,0.3)] shadow-[0_0_10px_rgba(255,99,71,0.1)]"
           >
             <span>Get Started</span>
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -164,6 +175,16 @@ const Navbar = () => {
                           ))}
                         </div>
                       </div>
+                    ) : link.external ? (
+                      <a
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMobileOpen(false)}
+                        className="block text-xl font-medium transition-colors text-gray-300 hover:text-white"
+                      >
+                        {link.name}
+                      </a>
                     ) : (
                       <Link
                         to={link.path}
@@ -188,14 +209,16 @@ const Navbar = () => {
                 >
                   Talk to Sales
                 </Link>
-                <Link
-                  to="/products"
+                <a
+                  href="https://license.aanirids.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="flex w-full items-center justify-center rounded-xl bg-[#fa6e43] px-5 py-3 text-sm font-semibold text-white transition-all shadow-[0_0_20px_rgba(255,99,71,0.2)]"
                 >
                   <span>Get Started</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+                </a>
               </div>
             </SheetContent>
           </Sheet>
