@@ -685,7 +685,7 @@ export default function TR069Premium() {
               {/* Background glow */}
               <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-[#fa6e43]/5 rounded-full blur-[120px] pointer-events-none" />
 
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
@@ -769,8 +769,7 @@ export default function TR069Premium() {
                             />
                           </motion.div>
                         </AnimatePresence>
-                        {/* subtle bottom fade */}
-                        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0d0d0e] to-transparent pointer-events-none" />
+
                       </div>
 
                       {/* Apply Button */}

@@ -62,6 +62,8 @@ const ISPRadius = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [isCloud, setIsCloud] = useState(false);
+  const [packages, setPackages] = useState(radiusPricing);
+  const [loadingPackages, setLoadingPackages] = useState(true);
   const statsRef = useRef(null);
   const dashboardRef = useRef(null);
   const featuresTimelineRef = useRef(null);
@@ -103,6 +105,25 @@ const ISPRadius = () => {
     }
 
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const res = await fetch('http://localhost:5001/api/packages');
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.data && json.data.length > 0) {
+            setPackages(json.data);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch packages:', err);
+      } finally {
+        setLoadingPackages(false);
+      }
+    };
+    fetchPackages();
   }, []);
 
   const CountingNumber = ({ target, suffix = '', duration = 2000, isVisible }) => {
@@ -677,13 +698,33 @@ const ISPRadius = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {radiusPricing.map((plan, index) => {
-              const isPopular = plan.name === 'Standard';
-              const priceNum = typeof plan.price === 'number' ? plan.price : null;
-              const displayPrice = priceNum 
-                ? (isCloud ? priceNum + 20 : priceNum) 
-                : plan.price;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {packages
+              .filter(p => p.package_type ? p.package_type === (isCloud ? 'cloud' : 'on_premise') : true)
+              .sort((a, b) => {
+                const priceA = typeof a.price === 'number' ? a.price : parseFloat(a.price) || 0;
+                const priceB = typeof b.price === 'number' ? b.price : parseFloat(b.price) || 0;
+                return priceA - priceB;
+              })
+              .map((plan, index) => {
+              const isPopular = plan.is_popular !== undefined ? plan.is_popular : plan.name === 'Standard';
+              const rawPrice = parseFloat(plan.price);
+              const priceNum = !isNaN(rawPrice) ? rawPrice : null;
+              
+              let displayPrice = plan.package_type 
+                ? (priceNum !== null ? priceNum : plan.price)
+                : (priceNum !== null ? (isCloud ? priceNum + 20 : priceNum) : plan.price);
+                
+              if (typeof displayPrice === 'number') {
+                displayPrice = Math.round(displayPrice);
+              } else if (typeof displayPrice === 'string' && !isNaN(parseFloat(displayPrice))) {
+                displayPrice = Math.round(parseFloat(displayPrice));
+              }
+
+              let billingText = 'month';
+              if (plan.billing_cycle === 'yearly') billingText = 'year';
+              else if (plan.billing_cycle === 'quarterly') billingText = 'quarter';
+              else if (plan.billing_cycle === 'half_yearly') billingText = '6 months';
 
               return (
                 <motion.div
@@ -695,17 +736,17 @@ const ISPRadius = () => {
                   className="relative group h-full flex"
                 >
                   {/* Glow effect for popular plan */}
-                  {isPopular && (
+                  {Boolean(isPopular) && (
                     <div className="absolute -inset-[1px] bg-gradient-to-b from-[#fa6e43] to-[#fa6e43]/10 rounded-3xl blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                   )}
 
-                  <div className={`relative flex flex-col w-full h-full p-8 rounded-3xl border transition-all duration-300 ${
+                  <div className={`relative flex flex-col w-full h-full p-6 rounded-3xl border transition-all duration-300 ${
                     isPopular 
                       ? 'bg-[#161719] border-[#fa6e43]/50 shadow-[0_0_40px_rgba(255,99,71,0.15)] scale-[1.02] z-10' 
                       : 'bg-[#161719]/80 border-white/10 hover:border-white/20 hover:bg-[#161719]'
                   }`}>
                     
-                    {isPopular && (
+                    {Boolean(isPopular) && (
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span className="bg-gradient-to-r from-[#fa6e43] to-[#fa6e43] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
                           Most Popular
@@ -715,18 +756,18 @@ const ISPRadius = () => {
 
                     <div className="mb-6">
                       <h3 className="text-2xl font-bold text-[#c0c0c0] mb-2">{plan.name}</h3>
-                      <p className="text-sm text-gray-400 h-10">{plan.description}</p>
+                     
                     </div>
 
                     <div className="mb-8 flex-grow-0">
                       <div className="flex items-end gap-1">
-                        {priceNum && <span className="text-3xl font-medium text-gray-400 mb-1">$</span>}
-                        <span className={`font-bold tracking-tight ${isPopular ? 'text-white' : 'text-gray-100'}`} style={{ fontSize: priceNum ? '3.5rem' : '2.5rem', lineHeight: 1 }}>
+                        {priceNum !== null && <span className="text-2xl font-medium text-gray-400 mb-1">₹</span>}
+                        <span className={`font-bold tracking-tight ${isPopular ? 'text-white' : 'text-gray-100'}`} style={{ fontSize: priceNum !== null ? '2.5rem' : '2rem', lineHeight: 1 }}>
                           {displayPrice}
                         </span>
-                        {priceNum && (
-                          <span className="text-gray-400 mb-2 ml-1">
-                            /mo
+                        {priceNum !== null && (
+                          <span className="text-sm text-gray-400 mb-1 ml-1">
+                            /{billingText}
                           </span>
                         )}
                       </div>
@@ -734,30 +775,60 @@ const ISPRadius = () => {
                     </div>
 
                     <div className="flex-grow space-y-4 mb-8">
-                      <div className="flex items-center gap-3">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                          <Check className="w-3 h-3 text-[#fa6e43]" />
-                        </div>
-                        <span className="text-gray-300">Up to <strong className="text-white">{plan.users}</strong> subscribers</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                          <Check className="w-3 h-3 text-[#fa6e43]" />
-                        </div>
-                        <span className="text-gray-300"><strong className="text-white">{plan.nas}</strong> NAS/Routers</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                          <Check className="w-3 h-3 text-[#fa6e43]" />
-                        </div>
-                        <span className="text-gray-300">Premium Support</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                          <Check className="w-3 h-3 text-[#fa6e43]" />
-                        </div>
-                        <span className="text-gray-300">All core features</span>
-                      </div>
+                      {plan.features && plan.features.length > 0 ? (
+                        <>
+                          {plan.features.slice(0, 5).map((feature, idx) => (
+                            <div key={idx} className="flex items-center gap-3">
+                              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
+                                <Check className="w-3 h-3 text-[#fa6e43]" />
+                              </div>
+                              <span className="text-gray-300">
+                                {feature.value && feature.value.toLowerCase() !== 'yes' && feature.value.toLowerCase() !== 'true' ? (
+                                  <>
+                                    <strong className="text-white">{feature.value} </strong>
+                                    {feature.name}
+                                  </>
+                                ) : (
+                                  feature.name
+                                )}
+                              </span>
+                            </div>
+                          ))}
+                          {plan.features.length > 5 && (
+                            <div className="pt-2 text-sm text-[#fa6e43] font-medium cursor-pointer flex items-center gap-1 hover:text-[#ff8a66] transition-colors">
+                              <span>+ {plan.features.length - 5} more features</span>
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        /* Fallback for mock data */
+                        <>
+                          <div className="flex items-center gap-3">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
+                              <Check className="w-3 h-3 text-[#fa6e43]" />
+                            </div>
+                            <span className="text-gray-300">Up to <strong className="text-white">{plan.users}</strong> subscribers</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
+                              <Check className="w-3 h-3 text-[#fa6e43]" />
+                            </div>
+                            <span className="text-gray-300"><strong className="text-white">{plan.nas}</strong> NAS/Routers</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
+                              <Check className="w-3 h-3 text-[#fa6e43]" />
+                            </div>
+                            <span className="text-gray-300">Premium Support</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
+                              <Check className="w-3 h-3 text-[#fa6e43]" />
+                            </div>
+                            <span className="text-gray-300">All core features</span>
+                          </div>
+                        </>
+                      )}
                     </div>
 
                     {plan.name === 'Advanced' ? (
@@ -776,7 +847,7 @@ const ISPRadius = () => {
                         href="https://license.aanirids.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`inline-flex items-center justify-center w-full py-6 text-lg font-semibold rounded-xl transition-all duration-300 ${
+                        className={`inline-flex items-center justify-center w-full py-2 text-lg font-semibold rounded-xl transition-all duration-300 ${
                           isPopular 
                             ? 'bg-[#fa6e43] hover:bg-[#fa6e43] text-white shadow-lg shadow-[#fa6e43]/25 hover:shadow-[#fa6e43]/40 border-none' 
                             : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'

@@ -11,7 +11,11 @@
     "cors": "^2.8.6",
     "dotenv": "^16.6.1",
     "express": "^4.22.1",
+    "helmet": "^8.2.0",
     "mongodb": "^6.21.0",
+    "morgan": "^1.11.0",
+    "mysql2": "^3.22.5",
+    "sequelize": "^6.37.8",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
