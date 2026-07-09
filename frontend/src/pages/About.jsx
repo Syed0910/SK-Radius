@@ -14,13 +14,12 @@ const About = () => {
           
           <div className="prose prose-invert max-w-none">
             <div className="bg-[#161719]/50 border border-[#161719] rounded-lg p-8 mb-8">
-              <h2 className="text-2xl font-semibold text-[#c0c0c0] mb-4">AaniRids Technologies Private Limited</h2>
+              <h2 className="text-2xl font-semibold text-[#c0c0c0] mb-4">SKRadius</h2>
               <p className="text-gray-300 mb-4">
-                AaniRids Technologies Private Limited is the company behind SKRadius and broadband services.
+                SKRadius is the premier, all-in-one digital management solution designed to empower ISPs and enterprises with smart, scalable, and highly secure network administration.
               </p>
               <p className="text-gray-400 text-sm">
-                <strong className="text-[#fa6e43]">Registered Office:</strong> Zars Mansion 5-992/5/B, Near Water Tank, 
-                Yadulla Colony, Gulbarga, Karnataka, India
+                <strong className="text-[#fa6e43]">Registered Office:</strong> Zars Mansion Near Water Tank yadulla Colony Gulbarga, Gulbarga, India - 585104
               </p>
             </div>
 
@@ -28,29 +27,27 @@ const About = () => {
               <div>
                 <h3 className="text-xl font-semibold text-[#c0c0c0] mb-3">What We Do</h3>
                 <ul className="space-y-2 list-disc list-inside text-gray-400">
-                  <li>Provides WavesNett Broadband (FTTH and business internet services)</li>
-                  <li>Offers tailored internet plans for homes, businesses, and enterprise clients</li>
-                  <li>Serves with reliability and customer support in connectivity solutions</li>
-                  <li>Committed to high-speed broadband delivery and network reliability</li>
+                  <li>Deliver advanced AAA (Authentication, Authorization, and Accounting) billing solutions</li>
+                  <li>Provide comprehensive TR-069 Auto Configuration Servers (ACS) for remote device management</li>
+                  <li>Offer robust Log Server systems for deep network visibility and compliance</li>
+                  <li>Equip ISPs with intuitive dashboards, detailed analytics, and fully automated provisioning</li>
                 </ul>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-[#c0c0c0] mb-3">Our Mission</h3>
                 <p className="text-gray-400">
-                  We are a trusted service provider in broadband technology, focused on connecting homes and enterprises. 
-                  We aim to deliver excellence in connectivity and support, providing high throughput and low-latency 
-                  internet services that businesses can rely on.
+                  Our mission is to simplify ISP operations by delivering a centralized, robust, and highly scalable ecosystem. We aim to take the complexity out of network management, allowing businesses to focus on providing top-tier internet experiences to their customers without worrying about backend scaling or security.
                 </p>
               </div>
 
               <div>
                 <h3 className="text-xl font-semibold text-[#c0c0c0] mb-3">Core Values</h3>
                 <ul className="space-y-2 list-disc list-inside text-gray-400">
-                  <li>Innovation and cutting-edge technology</li>
-                  <li>Customer-centric service delivery</li>
-                  <li>Reliability and performance excellence</li>
-                  <li>Long-term partnerships built on trust</li>
+                  <li>Cutting-edge innovation in network technology</li>
+                  <li>Uncompromising security and data integrity</li>
+                  <li>Scalability to support growth at any stage</li>
+                  <li>Empowering ISPs with seamless, automated solutions</li>
                 </ul>
               </div>
             </div>

@@ -9,6 +9,7 @@ const models = require('./models'); // Load models and associations
 
 // Import routes (adapted for SK-Radius packages)
 const packageRoutes = require('./routes/packageRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -37,6 +38,7 @@ app.use('/src/photos', express.static(path.join(__dirname, 'photos')));
 
 // Routes
 app.use('/api/packages', packageRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
