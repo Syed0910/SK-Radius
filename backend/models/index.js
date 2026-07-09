@@ -3,7 +3,7 @@ const Feature = require('./Feature');
 const Tax = require('./Tax');
 const Package = require('./Package');
 const PackageFeature = require('./PackageFeature');
-
+const ContactMessage = require('./ContactMessage');
 // Define associations
 Package.belongsTo(Tax, { foreignKey: 'tax_id', as: 'tax' });
 Tax.hasMany(Package, { foreignKey: 'tax_id', as: 'packages' });
@@ -34,5 +34,6 @@ module.exports = {
   Feature,
   Tax,
   Package,
-  PackageFeature
+  PackageFeature,
+  ContactMessage
 };

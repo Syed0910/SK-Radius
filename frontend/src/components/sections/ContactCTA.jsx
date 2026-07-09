@@ -40,11 +40,11 @@ export default function ContactCTA() {
                 <span className="text-sm">info@skradius.com</span>
               </a>
               <a
-                href="tel:+91XXXXXXXXXX"
+                href="tel:+918472360140"
                 className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors duration-300"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span className="text-sm">+91-XXXXXXXXXX (WhatsApp)</span>
+                <span className="text-sm">+91-8472360140 (WhatsApp)</span>
               </a>
             </div>
           </GlassCard>
