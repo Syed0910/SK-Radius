@@ -42,7 +42,7 @@ const Navbar = () => {
     { name: 'Client Portal', path: 'https://license.aanirids.com/', external: true },
     // { name: 'Our Partners', path: '/partners' },
     // { name: 'Our Clients', path: '/clients' },
-    { name: 'Docs', path: '/docs' }
+    { name: 'Docs', path: 'https://docs.aanirids.com/', external: true }
   ];
 
   return (
@@ -60,7 +60,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 group z-10">
           <img
-            src="/images/skradius-logo.png"
+            src="/images/SK-Radius-logo.png"
             alt="SKRadius"
             className="h-9 w-auto transition-all duration-300 group-hover:scale-105 group-hover:brightness-110 drop-shadow-[0_0_15px_rgba(255,99,71,0.2)]"
           />

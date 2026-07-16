@@ -37,7 +37,7 @@ const ClientPortal = () => {
         <Card className="bg-[#161719]/80 backdrop-blur-lg border-[#161719]">
           <CardHeader className="text-center">
             <img 
-              src="/images/skradius-logo.png" 
+              src="/images/SK-Radius-logo.png" 
               alt="SKRadius" 
               className="h-16 w-auto mx-auto mb-6"
             />
