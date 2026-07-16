@@ -11,26 +11,26 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          
+
           {/* Brand & Newsletter Section (Span 4) */}
           <div className="lg:col-span-4">
             <Link to="/" className="inline-block mb-6">
-              <img 
-                src="/images/skradius-logo.png" 
-                alt="SKRadius" 
+              <img
+                src="/images/SK-Radius-logo.png"
+                alt="SKRadius"
                 className="h-10 w-auto drop-shadow-[0_0_15px_rgba(255,99,71,0.1)]"
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-8">
               Empowering ISPs and enterprises with smart, scalable, and secure digital management solutions.
             </p>
-            
+
             <div className="space-y-4">
               <h4 className="text-sm font-semibold text-white">Subscribe to our newsletter</h4>
               <div className="flex items-center gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Enter your email" 
+                <input
+                  type="email"
+                  placeholder="Enter your email"
                   className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#fa6e43]/50 focus:ring-1 focus:ring-[#fa6e43]/50 w-full transition-all"
                 />
                 <button className="bg-[#fa6e43] hover:bg-[#ff8a66] text-white px-4 py-2.5 rounded-lg flex items-center justify-center transition-colors shadow-[0_0_15px_rgba(255,99,71,0.2)]">
@@ -48,7 +48,7 @@ const Footer = () => {
                 { name: 'ISP Radius', path: '/products/isp-radius' },
                 { name: 'Log Server', path: '/products/log-server' },
                 { name: 'TR-069', path: '/tr069' },
-               
+
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link to={item.path} className="text-gray-400 hover:text-[#fa6e43] text-sm transition-all duration-300 hover:translate-x-1 inline-block">
@@ -110,11 +110,11 @@ const Footer = () => {
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} SKRadius. All rights reserved.
           </p>
-          
+
           <div className="flex items-center gap-6">
             <Link to="/privacy" className="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</Link>
-            <Link to="/docs" className="text-gray-500 hover:text-white text-sm transition-colors">Documentation</Link>
+            <a href="https://docs.aanirids.com/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white text-sm transition-colors">Documentation</a>
           </div>
 
           <div className="flex space-x-3">
@@ -124,9 +124,9 @@ const Footer = () => {
               { icon: Linkedin, href: '#' },
               { icon: Github, href: '#' }
             ].map((Social, idx) => (
-              <a 
-                key={idx} 
-                href={Social.href} 
+              <a
+                key={idx}
+                href={Social.href}
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#fa6e43] hover:text-white hover:border-[#fa6e43] transition-all duration-300 group"
               >
                 <Social.icon className="h-4 w-4 group-hover:scale-110 transition-transform" />

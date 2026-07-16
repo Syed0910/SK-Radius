@@ -1,4 +1,5 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import {
   Server, Shield, Zap, Globe, Activity, Settings, Network,
@@ -1450,12 +1451,12 @@ export default function TR069Premium() {
                       Every ISP has different infrastructure needs. Let our engineers walk you through how SK Radius TR-069 ACS works with your specific router fleet and provisioning workflow.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
+                  <Link to="/contact" className="flex items-center justify-between mt-auto group">
                     <span className="text-white text-lg font-medium">Let's have a chat</span>
-                    <button className="w-14 h-14 bg-[#fa6e43] rounded-xl flex items-center justify-center hover:bg-[#fa6e43]/80 transition-colors">
+                    <div className="w-14 h-14 bg-[#fa6e43] rounded-xl flex items-center justify-center group-hover:bg-[#fa6e43]/80 transition-colors">
                       <ArrowRight className="text-white w-6 h-6" />
-                    </button>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>

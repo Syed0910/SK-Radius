@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Check, ArrowRight, Server, Network, Users, Shield, Clock, Search, Database } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -891,12 +892,12 @@ const LogServer = () => {
                       Every team's needs are different. Let our experts show you how SK Syslog Server can work for your specific requirements — let's have a chat and find the right solution for you.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
+                  <Link to="/contact" className="flex items-center justify-between mt-auto group">
                     <span className="text-white text-lg font-medium">Let's have a chat</span>
-                    <button className="w-14 h-14 bg-[#fa6e43] rounded-xl flex items-center justify-center hover:bg-[#fa6e43] transition-colors">
+                    <div className="w-14 h-14 bg-[#fa6e43] rounded-xl flex items-center justify-center group-hover:bg-[#fa6e43] transition-colors">
                       <ArrowRight className="text-white w-6 h-6" />
-                    </button>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>

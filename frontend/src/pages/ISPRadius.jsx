@@ -871,9 +871,9 @@ const ISPRadius = () => {
           >
             <div className="inline-flex items-center justify-center gap-3 p-1 pl-4 pr-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <span className="text-gray-300 text-sm">Need a custom plan for a larger network?</span>
-              <button className="bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors flex items-center gap-2">
+              <Link to="/contact" className="bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors flex items-center gap-2">
                 Talk to us <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -1035,12 +1035,12 @@ const ISPRadius = () => {
                       Every team's needs are different. Let our experts show you how ISP Radius can work for your specific requirements — let's have a chat and find the right solution for you.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
+                  <Link to="/contact" className="flex items-center justify-between mt-auto group">
                     <span className="text-white text-lg font-medium">Let's have a chat</span>
-                    <button className="w-14 h-14 bg-[#fa6e43] rounded-xl flex items-center justify-center hover:bg-[#fa6e43] transition-colors">
+                    <div className="w-14 h-14 bg-[#fa6e43] rounded-xl flex items-center justify-center group-hover:bg-[#fa6e43] transition-colors">
                       <ArrowRight className="text-white w-6 h-6" />
-                    </button>
-                  </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
