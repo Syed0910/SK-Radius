@@ -8,7 +8,7 @@ export function useIsLowPower() {
       const isMobile = window.innerWidth < 768;
       const isSlowGPU = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      setIsLowPower(isMobile || reducedMotion);
+      setIsLowPower(reducedMotion);
     };
     check();
     window.addEventListener('resize', check);

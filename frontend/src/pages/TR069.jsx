@@ -232,10 +232,10 @@ export default function TR069Premium() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-[#e3dbd8] mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#e3dbd8] mb-6">
               TR-069 ACS
             </h1>
-            <p className="text-2xl text-[#fa6e43] mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-[#fa6e43] mb-6">
               Intelligent Device Management & Auto-Provisioning
             </p>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto">
@@ -698,7 +698,7 @@ export default function TR069Premium() {
                     <Settings className="w-3.5 h-3.5 text-[#fa6e43] mr-2" />
                     <span className="text-[#fa6e43] text-sm font-medium">TR-069 ACS Feature</span>
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-5">Configure Every Router <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fa6e43] to-orange-300">Remotely</span></h2>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-5">Configure Every Router <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fa6e43] to-orange-300">Remotely</span></h2>
                   <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
                     Manage WiFi, WAN, connected devices, and security settings remotely from a centralized ACS platform. Push configurations instantly to one device or thousands without on-site visits.
                   </p>
@@ -970,7 +970,7 @@ export default function TR069Premium() {
                     <Zap className="w-3.5 h-3.5 text-[#fa6e43] mr-2" />
                     <span className="text-[#fa6e43] text-sm font-medium">Core Capabilities</span>
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-5">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-5">
                     Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fa6e43] to-orange-300">Network Intelligence</span>
                   </h2>
                   <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -1281,9 +1281,9 @@ export default function TR069Premium() {
                       </div>
 
                       {/* Fault Table */}
-                      <div className="bg-white/4 border border-white/8 rounded-2xl overflow-hidden">
+                      <div className="bg-white/4 border border-white/8 rounded-2xl overflow-hidden overflow-x-auto">
                         {/* Table header */}
-                        <div className="grid grid-cols-[80px_1fr_100px_60px] gap-2 px-3 py-2 border-b border-white/8">
+                        <div className="grid grid-cols-[80px_1fr_100px_60px] gap-2 px-3 py-2 border-b border-white/8 min-w-[300px]">
                           <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Severity</span>
                           <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Device</span>
                           <span className="text-[10px] font-semibold text-gray-500 uppercase tracking-wide">Fault Code</span>
@@ -1446,7 +1446,7 @@ export default function TR069Premium() {
                 </div>
                 <div className="p-10 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-4xl font-semibold text-[#c0c0c0] mb-6 tracking-tight">Still have questions?</h3>
+                    <h3 className="text-3xl sm:text-4xl font-semibold text-[#c0c0c0] mb-6 tracking-tight">Still have questions?</h3>
                     <p className="text-gray-400 text-lg leading-relaxed mb-10">
                       Every ISP has different infrastructure needs. Let our engineers walk you through how SK Radius TR-069 ACS works with your specific router fleet and provisioning workflow.
                     </p>
@@ -1469,7 +1469,7 @@ export default function TR069Premium() {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#fa6e43]/20 to-blue-900/20"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-6">Ready to Get Started?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#c0c0c0] mb-6">Ready to Get Started?</h2>
           <p className="text-lg text-gray-300 mb-8">
             Start managing your ISP network with SK Radius TR-069 today
           </p>

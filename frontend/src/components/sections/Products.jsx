@@ -4,10 +4,16 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Zap, Shield, TrendingUp, Activity, Search, Bell, Network, Wifi, RefreshCw } from 'lucide-react';
 import { PrimaryCTA, GhostButton } from '../ui/premium';
 
-const TimelineFeature = ({ icon: Icon, title, description, index, progress }) => {
+const TimelineFeature = ({ icon: Icon, title, description, index, progress, isLast }) => {
   const start = index * 0.25;
   const active = start + 0.125;
   const end = (index + 1) * 0.25;
+
+  const segmentProgress = useTransform(
+    progress,
+    [active, end + 0.125],
+    [0, 1]
+  );
 
   const opacity = useTransform(
     progress,
@@ -40,21 +46,33 @@ const TimelineFeature = ({ icon: Icon, title, description, index, progress }) =>
   );
 
   return (
-    <motion.div style={{ opacity, y }} className="flex items-start space-x-6 relative py-5 group">
-      <div className="relative z-10 flex items-center justify-center w-8 h-8 rounded-full bg-[#161719] border-2 border-[#161719] flex-shrink-0 mt-[-2px]">
-        <motion.div
-          style={{ backgroundColor: dotColor, scale: dotScale, boxShadow: dotGlow }}
-          className="w-2.5 h-2.5 rounded-full"
-        />
+    <div className="flex items-stretch group">
+      {/* Left column: dot on top, growing line below */}
+      <div className="flex flex-col items-center flex-shrink-0 mr-6">
+        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[#161719] flex-shrink-0">
+          <motion.div
+            style={{ backgroundColor: dotColor, scale: dotScale, boxShadow: dotGlow }}
+            className="w-2.5 h-2.5 rounded-full"
+          />
+        </div>
+        {!isLast && (
+          <div className="relative flex-1 w-0.5 bg-[#2a2a2a] mt-1">
+            <motion.div
+              className="absolute top-0 left-0 w-full bg-[#fa6e43] origin-top"
+              style={{ height: '100%', scaleY: segmentProgress }}
+            />
+          </div>
+        )}
       </div>
-      <div>
-        <div className="flex items-center space-x-3 mb-1">
+      {/* Right column: content */}
+      <motion.div style={{ opacity, y }} className={`flex-1 ${isLast ? 'pb-0' : 'pb-8'}`}>
+        <div className="flex items-center space-x-3 mb-1 pt-1">
           <Icon className="w-5 h-5 text-[#fa6e43]" />
           <h4 className="text-xl font-bold text-gray-200 tracking-wide group-hover:text-[#fa6e43] transition-colors duration-300">{title}</h4>
         </div>
         <p className="text-gray-400 leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">{description}</p>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -153,7 +171,7 @@ export default function Products() {
           viewport={{ once: true }}
           className="text-center mb-20 max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#c0c0c0] mb-4">
             Our Ready-Made Software Solutions
           </h2>
           <p className="text-xl text-gray-400">
@@ -171,17 +189,12 @@ export default function Products() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-2 lg:order-1 space-y-7"
             >
-              <h3 className="text-4xl font-bold text-[#c0c0c0] mb-2">ISP Radius</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-[#c0c0c0] mb-2">ISP Radius</h3>
               <p className="text-gray-400 mb-2 max-w-lg">
                 A comprehensive solution with built-in Radius (AAA) supporting 50+ Router/NAS vendors.
               </p>
 
               <div ref={ispFeaturesRef} className="relative mt-8 ml-2 mb-6">
-                <div className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-[#161719]" />
-                <motion.div
-                  className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-gradient-to-b from-[#fa6e43] to-[#fa6e43] origin-top"
-                  style={{ scaleY: ispTimelineProgress }}
-                />
                 <div className="flex flex-col relative z-10">
                   <TimelineFeature
                     index={0}
@@ -203,6 +216,7 @@ export default function Products() {
                     title="Subscriber Management"
                     description="Captive portal for login, online billing, and live bandwidth graphs for real-time monitoring."
                     progress={ispTimelineProgress}
+                    isLast={true}
                   />
                 </div>
               </div>
@@ -235,17 +249,12 @@ export default function Products() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-2 lg:order-2 space-y-7"
             >
-              <h3 className="text-4xl font-bold text-[#c0c0c0] mb-2">ISP Radius Log Server</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-[#c0c0c0] mb-2">ISP Radius Log Server</h3>
               <p className="text-gray-400 mb-2 max-w-lg">
                 Manage all types of logs in one place with our powerful and lightweight solution.
               </p>
 
               <div ref={logFeaturesRef} className="relative mt-8 ml-2 mb-6">
-                <div className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-[#161719]" />
-                <motion.div
-                  className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-gradient-to-b from-[#fa6e43] to-[#fa6e43] origin-top"
-                  style={{ scaleY: logTimelineProgress }}
-                />
                 <div className="flex flex-col relative z-10">
                   <TimelineFeature
                     index={0}
@@ -267,6 +276,7 @@ export default function Products() {
                     title="Advanced Modules"
                     description="Real-time notifications via email or SMS with 24/7 monitoring capabilities."
                     progress={logTimelineProgress}
+                    isLast={true}
                   />
                 </div>
               </div>
@@ -306,17 +316,12 @@ export default function Products() {
                 <span className="text-[#fa6e43] text-xs font-medium tracking-wide">TR-069 ACS</span>
               </div>
 
-              <h3 className="text-4xl font-bold text-[#c0c0c0] mb-2">SK Radius TR-069</h3>
+              <h3 className="text-3xl sm:text-4xl font-bold text-[#c0c0c0] mb-2">SK Radius TR-069</h3>
               <p className="text-gray-400 mb-2 max-w-lg">
                 A built-in Auto Configuration Server (ACS) to remotely provision, monitor, and manage every CPE router and ONT on your network — zero truck rolls needed.
               </p>
 
               <div ref={trFeaturesRef} className="relative mt-8 ml-2 mb-6">
-                <div className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-[#161719]" />
-                <motion.div
-                  className="absolute left-[15px] top-[34px] bottom-[34px] w-0.5 bg-gradient-to-b from-[#fa6e43] to-[#fa6e43] origin-top"
-                  style={{ scaleY: trTimelineProgress }}
-                />
                 <div className="flex flex-col relative z-10">
                   <TimelineFeature
                     index={0}
@@ -338,6 +343,7 @@ export default function Products() {
                     title="Bulk Firmware & Diagnostics"
                     description="Schedule mass firmware upgrades and run real-time ping, trace route, and speed tests remotely on any CPE."
                     progress={trTimelineProgress}
+                    isLast={true}
                   />
                 </div>
               </div>

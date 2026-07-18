@@ -79,8 +79,8 @@ export default function IntegrationsMarquee() {
         {renderMarqueeRow(row2, "right", 110)}
 
         {/* Fade gradients on edges for smooth entry/exit */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#161719] to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#161719] to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-10 sm:w-24 md:w-32 bg-gradient-to-r from-[#161719] to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-10 sm:w-24 md:w-32 bg-gradient-to-l from-[#161719] to-transparent pointer-events-none" />
       </div>
     </section>
   );

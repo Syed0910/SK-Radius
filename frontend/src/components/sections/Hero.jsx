@@ -67,13 +67,13 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8"
+      className="relative min-h-screen flex items-center py-24 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <motion.div style={{ y, opacity }} className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 items-center">
           
           {/* Left Side: Text Content */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left pr-4">
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -85,14 +85,14 @@ export default function Hero() {
             <AnimatedHeadline
               text="Innovative ISP Management & Software Solutions For Businesses"
               highlight={['ISP', 'Management']}
-              className="text-7xl md:text-7xl font-bold text-[#e3dbd8] mb-6 leading-[1.1] tracking-tight text-left"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#e3dbd8] mb-6 leading-[1.1] tracking-tight text-left"
             />
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl text-left"
+              className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 sm:mb-10 leading-relaxed max-w-2xl text-left"
             >
               We build comprehensive ISP management platforms that automate
               and streamline your network operations — engineered for
@@ -115,7 +115,7 @@ export default function Hero() {
           </div>
 
           {/* Right Side: Stats Grid */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:pl-4">
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4 lg:pl-4">
             {stats.map((stat, idx) => {
               const isEven = idx % 2 === 0;
               return (

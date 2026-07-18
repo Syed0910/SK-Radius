@@ -10,6 +10,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #161719;
+    overflow-x: clip;
+}
+
+html {
+    overflow-x: clip;
 }
 
 code {

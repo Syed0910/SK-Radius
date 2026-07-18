@@ -15,8 +15,8 @@ export default function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <GlassCard className="p-10 md:p-14 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-4">
+          <GlassCard className="p-8 sm:p-10 md:p-14 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#c0c0c0] mb-4">
               Let's Build Your Network
             </h2>
             <p className="text-xl text-gray-400 mb-10 max-w-xl mx-auto">
