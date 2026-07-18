@@ -154,71 +154,138 @@ const Navbar = () => {
                 <Menu className="h-6 w-6" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-[#050505]/95 backdrop-blur-xl border-l border-white/10 w-full sm:w-[400px]">
-              <div className="text-left text-white mb-8 border-b border-white/10 pb-4 text-lg font-semibold">Navigation</div>
-              <div className="flex flex-col space-y-6">
-                {navLinks.map((link) => (
-                  <div key={link.name}>
-                    {link.dropdown ? (
-                      <div className="space-y-3">
-                        <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{link.name}</div>
-                        <div className="flex flex-col space-y-2 pl-2 border-l border-white/10">
-                          {link.dropdown.map((item) => (
-                            <Link
-                              key={item.path}
-                              to={item.path}
-                              onClick={() => setMobileOpen(false)}
-                              className="block text-lg font-medium text-gray-300 hover:text-[#fa6e43] transition-colors py-1 pl-4"
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    ) : link.external ? (
-                      <a
-                        href={link.path}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setMobileOpen(false)}
-                        className="block text-xl font-medium transition-colors text-gray-300 hover:text-white"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link
-                        to={link.path}
-                        onClick={() => setMobileOpen(false)}
-                        className={`block text-xl font-medium transition-colors ${location.pathname === link.path
-                          ? 'text-[#fa6e43]'
-                          : 'text-gray-300 hover:text-white'
-                          }`}
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
-              </div>
+            <SheetContent
+              side="right"
+              className="p-0 border-0 w-full sm:w-[380px] overflow-hidden"
+              style={{
+                background: 'rgba(10, 10, 12, 0.85)',
+                backdropFilter: 'blur(32px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(32px) saturate(180%)',
+                borderLeft: '1px solid rgba(255,255,255,0.07)',
+                boxShadow: '-20px 0 60px rgba(0,0,0,0.6)',
+              }}
+            >
+              {/* Ambient glow blobs */}
+              <div className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-10 pointer-events-none"
+                style={{ background: 'radial-gradient(circle, #fa6e43 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
+              <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full opacity-5 pointer-events-none"
+                style={{ background: 'radial-gradient(circle, #fa6e43 0%, transparent 70%)', transform: 'translate(-30%, 30%)' }} />
 
-              <div className="absolute bottom-10 left-6 right-6 space-y-4">
-                <Link
-                  to="/contact"
-                  onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center rounded-xl bg-white/5 border border-white/10 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-white/10"
-                >
-                  Talk to Sales
-                </Link>
-                <a
-                  href="https://license.aanirids.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center rounded-xl bg-[#fa6e43] px-5 py-3 text-sm font-semibold text-white transition-all shadow-[0_0_20px_rgba(255,99,71,0.2)]"
-                >
-                  <span>Get Started</span>
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+              <div className="relative z-10 flex flex-col h-full px-6 pt-6 pb-8">
+
+                {/* Header: Logo */}
+                <div className="flex items-center justify-between mb-8">
+                  <Link to="/" onClick={() => setMobileOpen(false)}>
+                    <img src="/images/SK-Radius-logo.png" alt="SKRadius" className="h-8 w-auto" />
+                  </Link>
+                </div>
+
+                {/* Divider */}
+                <div className="h-px w-full mb-6" style={{ background: 'linear-gradient(to right, rgba(250,110,67,0.4), transparent)' }} />
+
+                {/* Nav Links */}
+                <nav className="flex flex-col gap-1 flex-1">
+                  {navLinks.map((link, i) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: 24 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.07, duration: 0.35, ease: 'easeOut' }}
+                    >
+                      {link.dropdown ? (
+                        <div className="mb-2">
+                          <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#fa6e43]/60 mb-2 px-1">
+                            {link.name}
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            {link.dropdown.map((item) => (
+                              <Link
+                                key={item.path}
+                                to={item.path}
+                                onClick={() => setMobileOpen(false)}
+                                className="group flex items-center justify-between rounded-xl px-4 py-3 transition-all duration-200"
+                                style={{
+                                  background: location.pathname === item.path
+                                    ? 'rgba(250,110,67,0.12)'
+                                    : 'rgba(255,255,255,0.04)',
+                                  border: location.pathname === item.path
+                                    ? '1px solid rgba(250,110,67,0.3)'
+                                    : '1px solid rgba(255,255,255,0.06)',
+                                }}
+                              >
+                                <span className={`text-sm font-medium transition-colors ${location.pathname === item.path ? 'text-[#fa6e43]' : 'text-gray-300 group-hover:text-white'}`}>
+                                  {item.name}
+                                </span>
+                                <ArrowRight className="w-3.5 h-3.5 text-[#fa6e43] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ) : link.external ? (
+                        <a
+                          href={link.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setMobileOpen(false)}
+                          className="group flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium text-gray-300 hover:text-white transition-all duration-200"
+                          style={{ border: '1px solid transparent' }}
+                          onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+                          onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                        >
+                          {link.name}
+                          <ArrowRight className="w-3.5 h-3.5 text-[#fa6e43] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 ml-auto" />
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.path}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-between px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200"
+                          style={{
+                            color: location.pathname === link.path ? '#fa6e43' : 'rgb(209,213,219)',
+                            background: location.pathname === link.path ? 'rgba(250,110,67,0.08)' : 'transparent',
+                            border: location.pathname === link.path ? '1px solid rgba(250,110,67,0.2)' : '1px solid transparent',
+                          }}
+                        >
+                          {link.name}
+                          {location.pathname === link.path && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#fa6e43] shadow-[0_0_8px_#fa6e43]" />
+                          )}
+                        </Link>
+                      )}
+                    </motion.div>
+                  ))}
+                </nav>
+
+                {/* Bottom CTAs */}
+                <div className="space-y-3 mt-6">
+                  <div className="h-px w-full mb-4" style={{ background: 'linear-gradient(to right, transparent, rgba(255,255,255,0.08), transparent)' }} />
+                  <Link
+                    to="/contact"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex w-full items-center justify-center rounded-xl px-5 py-3.5 text-sm font-medium text-gray-200 transition-all duration-200 hover:text-white"
+                    style={{
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                    }}
+                  >
+                    Talk to Sales
+                  </Link>
+                  <a
+                    href="https://license.aanirids.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold text-white transition-all duration-200"
+                    style={{
+                      background: 'linear-gradient(135deg, #fa6e43, #e85d32)',
+                      boxShadow: '0 0 24px rgba(250,110,67,0.35), inset 0 1px 0 rgba(255,255,255,0.15)',
+                    }}
+                  >
+                    <span>Get Started</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+
               </div>
             </SheetContent>
           </Sheet>

@@ -10,10 +10,10 @@ const Footer = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[150px] bg-[#fa6e43] blur-[120px] rounded-full opacity-10 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 mb-16">
 
           {/* Brand & Newsletter Section (Span 4) */}
-          <div className="lg:col-span-4">
+          <div className="sm:col-span-2 lg:col-span-4">
             <Link to="/" className="inline-block mb-6">
               <img
                 src="/images/SK-Radius-logo.png"
@@ -33,7 +33,7 @@ const Footer = () => {
                   placeholder="Enter your email"
                   className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-[#fa6e43]/50 focus:ring-1 focus:ring-[#fa6e43]/50 w-full transition-all"
                 />
-                <button className="bg-[#fa6e43] hover:bg-[#ff8a66] text-white px-4 py-2.5 rounded-lg flex items-center justify-center transition-colors shadow-[0_0_15px_rgba(255,99,71,0.2)]">
+                <button className="bg-[#fa6e43] hover:bg-[#ff8a66] text-white px-4 py-2.5 rounded-lg flex items-center justify-center transition-colors shadow-[0_0_15px_rgba(255,99,71,0.2)] flex-shrink-0">
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info (Span 3) */}
-          <div className="lg:col-span-3">
+          <div className="sm:col-span-2 lg:col-span-3">
             <h3 className="text-white text-sm font-semibold uppercase tracking-wider mb-6">Connect</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">

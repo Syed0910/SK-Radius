@@ -108,7 +108,7 @@ const Contact = () => {
             <span className="w-2 h-2 rounded-full bg-[#fa6e43] animate-pulse"></span>
             We're here to help
           </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 mb-6 tracking-tight">
             Get in touch
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
@@ -159,7 +159,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="lg:col-span-5"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Let's talk about <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fa6e43] to-[#ff8c42]">scaling your network.</span>
             </h2>
             <p className="text-gray-400 text-lg mb-10 leading-relaxed">

@@ -239,10 +239,10 @@ const LogServer = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-[#e3dbd8] mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#e3dbd8] mb-6">
               ISP Log Server
             </h1>
-            <p className="text-2xl text-[#fa6e43] mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-[#fa6e43] mb-6">
               Advanced Centralized Log Management System
             </p>
             <p className="text-lg text-gray-300 max-w-4xl mx-auto">
@@ -584,7 +584,7 @@ const LogServer = () => {
             >
               <span className="text-gray-300 text-sm font-semibold tracking-wide uppercase">Complete Toolkit</span>
             </motion.div>
-            <h2 className="text-5xl font-extrabold text-[#c0c0c0] mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#c0c0c0] mb-6 tracking-tight">
               A Deep Dive Into Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fa6e43] to-[#fa6e43]">Capabilities</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -887,7 +887,7 @@ const LogServer = () => {
                 </div>
                 <div className="p-10 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="text-4xl font-semibold text-[#c0c0c0] mb-6 tracking-tight">You still have questions?</h3>
+                    <h3 className="text-3xl sm:text-4xl font-semibold text-[#c0c0c0] mb-6 tracking-tight">You still have questions?</h3>
                     <p className="text-gray-400 text-lg leading-relaxed mb-10">
                       Every team's needs are different. Let our experts show you how SK Syslog Server can work for your specific requirements — let's have a chat and find the right solution for you.
                     </p>
@@ -910,7 +910,7 @@ const LogServer = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-[#fa6e43]/20 to-blue-900/20"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-[#c0c0c0] mb-6">Start Monitoring Your Logs</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#c0c0c0] mb-6">Start Monitoring Your Logs</h2>
           <p className="text-lg text-gray-300 mb-8">
             Request a demo or free trial with installation and onboarding support
           </p>

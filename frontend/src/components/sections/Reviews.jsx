@@ -113,7 +113,7 @@ export default function Reviews() {
           </p>
         </motion.div>
 
-        <div className="relative h-[800px] overflow-hidden pause-on-hover">
+        <div className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] overflow-hidden pause-on-hover">
           {/* Top and Bottom Fade Masks */}
           <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#161719] to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#161719] to-transparent z-10 pointer-events-none" />
@@ -127,7 +127,7 @@ export default function Reviews() {
               return (
                 <div 
                   key={colIndex} 
-                  className="flex-1 flex flex-col gap-6 animate-marquee-vertical"
+                  className={`flex-1 flex flex-col gap-6 animate-marquee-vertical ${colIndex === 1 ? 'hidden md:flex' : ''} ${colIndex === 2 ? 'hidden lg:flex' : ''}`}
                   style={{ animationDuration: `${20 + colIndex * 4}s` }}
                 >
                   {displayReviews.map((r, i) => (
