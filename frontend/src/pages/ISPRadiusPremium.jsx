@@ -5,11 +5,14 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { premiumPricing, features, faqs, keyFeatures, whyChooseUs } from '../data/mockData';
+import { features, faqs, keyFeatures, whyChooseUs } from '../data/mockData';
 
 const ISPRadiusPremium = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [packages, setPackages] = useState([]);
+  const [loadingPackages, setLoadingPackages] = useState(true);
+  const [packagesError, setPackagesError] = useState(false);
   const statsRef = useRef(null);
 
   useEffect(() => {
@@ -32,6 +35,31 @@ const ISPRadiusPremium = () => {
         observer.unobserve(currentRef);
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+        const res = await fetch(`${backendUrl}/api/packages`);
+        if (res.ok) {
+          const json = await res.json();
+          if (json.success && json.data) {
+            setPackages(json.data);
+          } else {
+            setPackagesError(true);
+          }
+        } else {
+          setPackagesError(true);
+        }
+      } catch (err) {
+        console.error('Failed to fetch packages:', err);
+        setPackagesError(true);
+      } finally {
+        setLoadingPackages(false);
+      }
+    };
+    fetchPackages();
   }, []);
 
   const CountingNumber = ({ target, suffix, duration, isVisible }) => {
@@ -479,45 +507,72 @@ const ISPRadiusPremium = () => {
             </p>
           </motion.div>
 
+          {loadingPackages ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-10 h-10 border-4 border-[#fa6e43]/30 border-t-[#fa6e43] rounded-full animate-spin"></div>
+                <p className="text-gray-400 text-sm">Loading packages...</p>
+              </div>
+            </div>
+          ) : packagesError || packages.length === 0 ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="text-center">
+                <p className="text-gray-400 text-lg mb-2">No packages available at the moment.</p>
+                <p className="text-gray-500 text-sm">Please contact us for enterprise pricing information.</p>
+              </div>
+            </div>
+          ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {premiumPricing.map((plan, index) => (
+            {packages.map((plan, index) => {
+              const isPopular = Boolean(plan.is_popular);
+              const rawPrice = parseFloat(plan.price);
+              const priceNum = !isNaN(rawPrice) ? rawPrice : null;
+              const displayPrice = priceNum !== null ? Math.round(priceNum) : plan.price;
+              return (
               <motion.div
-                key={index}
+                key={plan.id || index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full bg-gradient-to-br from-[#fa6e43]/30 to-[#161719] border-[#fa6e43] hover:shadow-lg hover:shadow-[#fa6e43]/20 transition-all">
+                <Card className={`h-full ${
+                  isPopular
+                    ? 'bg-gradient-to-br from-[#fa6e43]/30 to-[#161719] border-[#fa6e43] hover:shadow-lg hover:shadow-[#fa6e43]/20'
+                    : 'bg-[#161719]/50 border-[#161719] hover:border-[#fa6e43] hover:shadow-lg hover:shadow-[#fa6e43]/20'
+                } transition-all`}>
                   <CardHeader>
                     <CardTitle className="text-2xl text-white">{plan.name}</CardTitle>
-                    <CardDescription className="text-gray-400">{plan.description}</CardDescription>
+                    <CardDescription className="text-gray-400">{plan.short_description}</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="mb-6">
                       <span className="text-4xl font-bold text-[#fa6e43]">
-                        {typeof plan.price === 'number' ? `$${plan.price}` : plan.price}
+                        {priceNum !== null ? `$${displayPrice}` : displayPrice}
                       </span>
-                      {typeof plan.price === 'number' && <span className="text-gray-400"> / month</span>}
+                      {priceNum !== null && <span className="text-gray-400"> / month</span>}
                     </div>
                     <ul className="space-y-3 mb-6">
-                      <li className="flex items-center text-gray-300">
-                        <Check className="h-5 w-5 text-[#fa6e43] mr-2" />
-                        Up to {plan.users} subscribers
-                      </li>
-                      <li className="flex items-center text-gray-300">
-                        <Check className="h-5 w-5 text-[#fa6e43] mr-2" />
-                        {plan.nas} NAS/Routers
-                      </li>
+                      {plan.features && plan.features.slice(0, 4).map((feature, idx) => (
+                        <li key={idx} className="flex items-center text-gray-300">
+                          <Check className="h-5 w-5 text-[#fa6e43] mr-2" />
+                          {feature.value && feature.value.toLowerCase() !== 'yes' && feature.value.toLowerCase() !== 'true'
+                            ? <><strong className="text-white mr-1">{feature.value}</strong> {feature.name}</>
+                            : feature.name
+                          }
+                        </li>
+                      ))}
                     </ul>
                     <Button className="w-full bg-[#fa6e43] hover:bg-[#fa6e43] text-white">
-                      {plan.name.includes('Advanced') ? 'Contact Us' : 'Get Started'}
+                      Get Started
                     </Button>
                   </CardContent>
                 </Card>
               </motion.div>
-            ))}
+            );
+            })}
           </div>
+          )}
         </div>
       </section>
 

@@ -674,12 +674,12 @@ const LogServer = () => {
                     <div className="absolute -inset-[1px] bg-gradient-to-b from-[#fa6e43] to-[#fa6e43]/10 rounded-3xl blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                   )}
 
-                  <div className={`relative flex flex-col w-full h-full p-8 rounded-3xl border transition-all duration-300 ${
-                    isPopular 
-                      ? 'bg-[#161719] border-[#fa6e43]/50 shadow-[0_0_40px_rgba(255,99,71,0.15)] scale-[1.02] z-10' 
+                  <div className={`relative flex flex-col w-full h-full p-6 rounded-3xl border transition-all duration-300 ${
+                    isPopular
+                      ? 'bg-[#161719] border-[#fa6e43]/50 shadow-[0_0_40px_rgba(255,99,71,0.15)] scale-[1.02] z-10'
                       : 'bg-[#161719]/80 border-white/10 hover:border-white/20 hover:bg-[#161719]'
                   }`}>
-                    
+
                     {isPopular && (
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <span className="bg-gradient-to-r from-[#fa6e43] to-[#fa6e43] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
@@ -690,18 +690,16 @@ const LogServer = () => {
 
                     <div className="mb-6">
                       <h3 className="text-2xl font-bold text-[#c0c0c0] mb-2">{plan.name}</h3>
-                      <p className="text-sm text-gray-400 h-10">{plan.support}</p>
+                      <p className="text-sm text-gray-400">{plan.support}</p>
                     </div>
 
                     <div className="mb-8 flex-grow-0">
                       <div className="flex items-end gap-1">
-                        <span className="text-3xl font-medium text-gray-400 mb-1">$</span>
-                        <span className={`font-bold tracking-tight ${isPopular ? 'text-white' : 'text-gray-100'}`} style={{ fontSize: '3.5rem', lineHeight: 1 }}>
+                        <span className="text-2xl font-medium text-gray-400 mb-1">$</span>
+                        <span className={`font-bold tracking-tight ${isPopular ? 'text-white' : 'text-gray-100'}`} style={{ fontSize: '2.5rem', lineHeight: 1 }}>
                           {plan.initialPrice}
                         </span>
-                        <span className="text-gray-400 mb-2 ml-1">
-                          Initial
-                        </span>
+                        <span className="text-sm text-gray-400 mb-1 ml-1">Initial</span>
                       </div>
                       <div className="mt-2 text-sm text-gray-400">
                         Yearly Fee: <span className="text-[#fa6e43] font-semibold">${plan.yearlyFee}</span>
@@ -713,7 +711,7 @@ const LogServer = () => {
                         <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
                           <Check className="w-3 h-3 text-[#fa6e43]" />
                         </div>
-                        <span className="text-gray-300">Unlimited Users & Data</span>
+                        <span className="text-gray-300">Unlimited Users &amp; Data</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
@@ -747,9 +745,9 @@ const LogServer = () => {
                       href="https://license.aanirids.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center justify-center w-full py-6 text-lg font-semibold rounded-xl transition-all duration-300 ${
-                        isPopular 
-                          ? 'bg-[#fa6e43] hover:bg-[#fa6e43] text-white shadow-lg shadow-[#fa6e43]/25 hover:shadow-[#fa6e43]/40 border-none' 
+                      className={`inline-flex items-center justify-center w-full py-2 text-lg font-semibold rounded-xl transition-all duration-300 ${
+                        isPopular
+                          ? 'bg-[#fa6e43] hover:bg-[#fa6e43] text-white shadow-lg shadow-[#fa6e43]/25 hover:shadow-[#fa6e43]/40 border-none'
                           : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
                       }`}
                     >
