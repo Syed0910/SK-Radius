@@ -6,7 +6,7 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
-import { radiusPricing, keyFeatures, features, whyChooseUs, faqs } from '../data/mockData';
+import { keyFeatures, features, whyChooseUs, faqs } from '../data/mockData';
 
 const TimelineFeature = ({ feature, index, progress }) => {
   const start = index * 0.25;
@@ -62,8 +62,9 @@ const ISPRadius = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [isCloud, setIsCloud] = useState(false);
-  const [packages, setPackages] = useState(radiusPricing);
+  const [packages, setPackages] = useState([]);
   const [loadingPackages, setLoadingPackages] = useState(true);
+  const [packagesError, setPackagesError] = useState(false);
   const statsRef = useRef(null);
   const dashboardRef = useRef(null);
   const featuresTimelineRef = useRef(null);
@@ -110,15 +111,21 @@ const ISPRadius = () => {
   useEffect(() => {
     const fetchPackages = async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/packages');
+        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+        const res = await fetch(`${backendUrl}/api/packages`);
         if (res.ok) {
           const json = await res.json();
-          if (json.success && json.data && json.data.length > 0) {
+          if (json.success && json.data) {
             setPackages(json.data);
+          } else {
+            setPackagesError(true);
           }
+        } else {
+          setPackagesError(true);
         }
       } catch (err) {
         console.error('Failed to fetch packages:', err);
+        setPackagesError(true);
       } finally {
         setLoadingPackages(false);
       }
@@ -693,156 +700,121 @@ const ISPRadius = () => {
               </button>
               <div className="flex items-center gap-2">
                 <span className={`text-sm font-medium transition-colors ${isCloud ? 'text-white' : 'text-gray-400'}`}>Cloud</span>
-               
               </div>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {packages
-              .filter(p => p.package_type ? p.package_type === (isCloud ? 'cloud' : 'on_premise') : true)
-              .sort((a, b) => {
-                const priceA = typeof a.price === 'number' ? a.price : parseFloat(a.price) || 0;
-                const priceB = typeof b.price === 'number' ? b.price : parseFloat(b.price) || 0;
-                return priceA - priceB;
-              })
-              .map((plan, index) => {
-              const isPopular = plan.is_popular !== undefined ? plan.is_popular : plan.name === 'Standard';
-              const rawPrice = parseFloat(plan.price);
-              const priceNum = !isNaN(rawPrice) ? rawPrice : null;
-              
-              let displayPrice = plan.package_type 
-                ? (priceNum !== null ? priceNum : plan.price)
-                : (priceNum !== null ? (isCloud ? priceNum + 20 : priceNum) : plan.price);
-                
-              if (typeof displayPrice === 'number') {
-                displayPrice = Math.round(displayPrice);
-              } else if (typeof displayPrice === 'string' && !isNaN(parseFloat(displayPrice))) {
-                displayPrice = Math.round(parseFloat(displayPrice));
-              }
+          {loadingPackages ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-10 h-10 border-4 border-[#fa6e43]/30 border-t-[#fa6e43] rounded-full animate-spin"></div>
+                <p className="text-gray-400 text-sm">Loading packages...</p>
+              </div>
+            </div>
+          ) : packagesError || packages.filter(p => p.package_type === (isCloud ? 'cloud' : 'on_premise')).length === 0 ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="text-center">
+                <p className="text-gray-400 text-lg mb-2">No packages available at the moment.</p>
+                <p className="text-gray-500 text-sm">Please contact us for pricing information.</p>
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {packages
+                .filter(p => p.package_type === (isCloud ? 'cloud' : 'on_premise'))
+                .sort((a, b) => {
+                  const priceA = parseFloat(a.price) || 0;
+                  const priceB = parseFloat(b.price) || 0;
+                  return priceA - priceB;
+                })
+                .map((plan, index) => {
+                const isPopular = Boolean(plan.is_popular);
+                const rawPrice = parseFloat(plan.price);
+                const priceNum = !isNaN(rawPrice) ? rawPrice : null;
+                const displayPrice = priceNum !== null ? Math.round(priceNum) : plan.price;
 
-              let billingText = 'month';
-              if (plan.billing_cycle === 'yearly') billingText = 'year';
-              else if (plan.billing_cycle === 'quarterly') billingText = 'quarter';
-              else if (plan.billing_cycle === 'half_yearly') billingText = '6 months';
+                let billingText = 'month';
+                if (plan.billing_cycle === 'yearly') billingText = 'year';
+                else if (plan.billing_cycle === 'quarterly') billingText = 'quarter';
+                else if (plan.billing_cycle === 'half_yearly') billingText = '6 months';
 
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="relative group h-full flex"
-                >
-                  {/* Glow effect for popular plan */}
-                  {Boolean(isPopular) && (
-                    <div className="absolute -inset-[1px] bg-gradient-to-b from-[#fa6e43] to-[#fa6e43]/10 rounded-3xl blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  )}
-
-                  <div className={`relative flex flex-col w-full h-full p-6 rounded-3xl border transition-all duration-300 ${
-                    isPopular 
-                      ? 'bg-[#161719] border-[#fa6e43]/50 shadow-[0_0_40px_rgba(255,99,71,0.15)] scale-[1.02] z-10' 
-                      : 'bg-[#161719]/80 border-white/10 hover:border-white/20 hover:bg-[#161719]'
-                  }`}>
-                    
-                    {Boolean(isPopular) && (
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        <span className="bg-gradient-to-r from-[#fa6e43] to-[#fa6e43] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
-                          Most Popular
-                        </span>
-                      </div>
+                return (
+                  <motion.div
+                    key={plan.id || index}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    className="relative group h-full flex"
+                  >
+                    {isPopular && (
+                      <div className="absolute -inset-[1px] bg-gradient-to-b from-[#fa6e43] to-[#fa6e43]/10 rounded-3xl blur-sm opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
                     )}
 
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-[#c0c0c0] mb-2">{plan.name}</h3>
-                     
-                    </div>
-
-                    <div className="mb-8 flex-grow-0">
-                      <div className="flex items-end gap-1">
-                        {priceNum !== null && <span className="text-2xl font-medium text-gray-400 mb-1">₹</span>}
-                        <span className={`font-bold tracking-tight ${isPopular ? 'text-white' : 'text-gray-100'}`} style={{ fontSize: priceNum !== null ? '2.5rem' : '2rem', lineHeight: 1 }}>
-                          {displayPrice}
-                        </span>
-                        {priceNum !== null && (
-                          <span className="text-sm text-gray-400 mb-1 ml-1">
-                            /{billingText}
+                    <div className={`relative flex flex-col w-full h-full p-6 rounded-3xl border transition-all duration-300 ${
+                      isPopular 
+                        ? 'bg-[#161719] border-[#fa6e43]/50 shadow-[0_0_40px_rgba(255,99,71,0.15)] scale-[1.02] z-10' 
+                        : 'bg-[#161719]/80 border-white/10 hover:border-white/20 hover:bg-[#161719]'
+                    }`}>
+                      
+                      {isPopular && (
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                          <span className="bg-gradient-to-r from-[#fa6e43] to-[#fa6e43] text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wider">
+                            Most Popular
                           </span>
+                        </div>
+                      )}
+
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-[#c0c0c0] mb-2">{plan.name}</h3>
+                        {plan.short_description && (
+                          <p className="text-sm text-gray-400">{plan.short_description}</p>
                         )}
                       </div>
-                     
-                    </div>
 
-                    <div className="flex-grow space-y-4 mb-8">
-                      {plan.features && plan.features.length > 0 ? (
-                        <>
-                          {plan.features.slice(0, 5).map((feature, idx) => (
-                            <div key={idx} className="flex items-center gap-3">
-                              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                                <Check className="w-3 h-3 text-[#fa6e43]" />
-                              </div>
-                              <span className="text-gray-300">
-                                {feature.value && feature.value.toLowerCase() !== 'yes' && feature.value.toLowerCase() !== 'true' ? (
-                                  <>
-                                    <strong className="text-white">{feature.value} </strong>
-                                    {feature.name}
-                                  </>
-                                ) : (
-                                  feature.name
-                                )}
-                              </span>
-                            </div>
-                          ))}
-                          {plan.features.length > 5 && (
-                            <div className="pt-2 text-sm text-[#fa6e43] font-medium cursor-pointer flex items-center gap-1 hover:text-[#ff8a66] transition-colors">
-                              <span>+ {plan.features.length - 5} more features</span>
-                            </div>
+                      <div className="mb-8 flex-grow-0">
+                        <div className="flex items-end gap-1">
+                          {priceNum !== null && <span className="text-2xl font-medium text-gray-400 mb-1">&#8377;</span>}
+                          <span className={`font-bold tracking-tight ${isPopular ? 'text-white' : 'text-gray-100'}`} style={{ fontSize: priceNum !== null ? '2.5rem' : '2rem', lineHeight: 1 }}>
+                            {displayPrice}
+                          </span>
+                          {priceNum !== null && (
+                            <span className="text-sm text-gray-400 mb-1 ml-1">/{billingText}</span>
                           )}
-                        </>
-                      ) : (
-                        /* Fallback for mock data */
-                        <>
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                              <Check className="w-3 h-3 text-[#fa6e43]" />
-                            </div>
-                            <span className="text-gray-300">Up to <strong className="text-white">{plan.users}</strong> subscribers</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                              <Check className="w-3 h-3 text-[#fa6e43]" />
-                            </div>
-                            <span className="text-gray-300"><strong className="text-white">{plan.nas}</strong> NAS/Routers</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                              <Check className="w-3 h-3 text-[#fa6e43]" />
-                            </div>
-                            <span className="text-gray-300">Premium Support</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
-                              <Check className="w-3 h-3 text-[#fa6e43]" />
-                            </div>
-                            <span className="text-gray-300">All core features</span>
-                          </div>
-                        </>
-                      )}
-                    </div>
+                        </div>
+                      </div>
 
-                    {plan.name === 'Advanced' ? (
-                      <Link
-                        to="/contact"
-                        className={`inline-flex items-center justify-center w-full py-6 text-lg font-semibold rounded-xl transition-all duration-300 ${
-                          isPopular 
-                            ? 'bg-[#fa6e43] hover:bg-[#fa6e43] text-white shadow-lg shadow-[#fa6e43]/25 hover:shadow-[#fa6e43]/40 border-none' 
-                            : 'bg-white/5 hover:bg-white/10 text-white border border-white/10'
-                        }`}
-                      >
-                        Contact Sales
-                      </Link>
-                    ) : (
+                      <div className="flex-grow space-y-4 mb-8">
+                        {plan.features && plan.features.length > 0 ? (
+                          <>
+                            {plan.features.slice(0, 5).map((feature, idx) => (
+                              <div key={idx} className="flex items-center gap-3">
+                                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#fa6e43]/20 flex items-center justify-center">
+                                  <Check className="w-3 h-3 text-[#fa6e43]" />
+                                </div>
+                                <span className="text-gray-300">
+                                  {feature.value && feature.value.toLowerCase() !== 'yes' && feature.value.toLowerCase() !== 'true' ? (
+                                    <>
+                                      <strong className="text-white">{feature.value} </strong>
+                                      {feature.name}
+                                    </>
+                                  ) : (
+                                    feature.name
+                                  )}
+                                </span>
+                              </div>
+                            ))}
+                            {plan.features.length > 5 && (
+                              <div className="pt-2 text-sm text-[#fa6e43] font-medium flex items-center gap-1">
+                                <span>+ {plan.features.length - 5} more features</span>
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="text-gray-500 text-sm italic">No features listed.</div>
+                        )}
+                      </div>
+
                       <a
                         href="https://license.aanirids.com/"
                         target="_blank"
@@ -855,12 +827,12 @@ const ISPRadius = () => {
                       >
                         Get Started
                       </a>
-                    )}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          )}
           
           {/* Custom plan CTA */}
           <motion.div 
